@@ -1,7 +1,9 @@
-export default function reverseArray<T> (arr : Array<T> ) :Array<T>{
+export function reverseArray<T>(items: T[]): T[] {
+    const result: T[] = [];
 
-    for (let index = arr.length -1; index >= 0; index--) {
-
-        console.log(arr[index]);
+    for (let i = items.length - 1; i >= 0; i--) {
+        result.push(items[i]);
     }
+
+    return result;
 }

@@ -1,4 +1,11 @@
-export default function NumberType(arr:Array<T>):void{
-    console.log(arr.filter((e) => (typeof e === 'number'))
-    )
+export function numberType(items: unknown[]): number {
+    let count = 0;
+
+    for (const item of items) {
+        if (typeof item === "number") {
+            count++;
+        }
+    }
+
+    return count;
 }
