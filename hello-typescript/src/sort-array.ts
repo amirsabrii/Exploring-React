@@ -1,6 +1,6 @@
 import { Entity } from "./entity-array";
 
-export function sort(items: Entity[]): Entity[] {
+export function sortArray(items: Entity[]): Entity[] {
     const result: Entity[] = [...items];
 
     for (let i = 0; i < result.length; i++) {
