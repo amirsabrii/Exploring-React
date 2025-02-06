@@ -1,4 +1,4 @@
-import { Entity } from "./entity-array";
+import { Entity } from "./entity";
 
 export function sortArray(items: Entity[]): Entity[] {
     const result: Entity[] = [...items];

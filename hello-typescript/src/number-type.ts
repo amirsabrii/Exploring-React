@@ -1,4 +1,4 @@
-export function numberType(items: unknown[]): number {
+export function countNumbers(items: unknown[]): number {
     let count = 0;
 
     for (const item of items) {

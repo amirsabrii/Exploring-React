@@ -1,17 +1,17 @@
-import {reverseArray} from './Reversing'
-import {numberType} from './number-type'
+import {reverseArray} from './reverse-array'
+import {countNumbers} from './number-type'
 import {sortArray} from './sort-array'
 
-import {Entity} from "./entity-array";
+import {Entity} from "./entity";
 
 function testReverseArray(){
     const items = ['React' , 'next' , '3' , 'html']
     console.log(reverseArray(items))
 }
 
-function testNumberType(){
+function testCountNumbers(){
     const items =['React' , 'next' , 3 , 'html' , 15 , 12]
-    console.log(numberType(items))
+    console.log(countNumbers(items))
 }
 
 function testSortArray(){
@@ -29,7 +29,7 @@ function testSortArray(){
 
 function main(){
     testReverseArray()
-    testNumberType()
+    testCountNumbers()
     testSortArray()
 }
 
