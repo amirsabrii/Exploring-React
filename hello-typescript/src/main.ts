@@ -1,5 +1,5 @@
 import {reverseArray} from './reverse-array'
-import {countNumbers} from './number-type'
+import {countNumbers} from './count-numbers'
 import {sortArray} from './sort-array'
 
 import {Entity} from "./entity";
