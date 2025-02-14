@@ -1,0 +1,32 @@
+.text-input {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  padding: 0.25rem;
+
+  border: 2px solid var(--color--golde-yellow);
+  border-radius: 0.5rem;
+
+  input {
+    flex: 1 1 0;
+
+    background-color: transparent;
+    color: var(--color-text);
+
+    border: none;
+    padding: 0.25rem;
+
+    font-size: 1.25rem;
+    line-height: 1;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .suffix {
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
+  }
+}

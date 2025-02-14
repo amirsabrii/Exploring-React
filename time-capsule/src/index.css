@@ -1,29 +1,28 @@
-:root{
-    --colo-black : #252525;
-    --color--withe : #7f7f7f;
-    --color--golde-yellow : #ffdf00;
+:root {
+  --colo-black: #252525;
+  --color--withe: #f7f7f7;
+  --color--golde-yellow: #ffdf00;
 
-    --color-surface : var(--color--withe);
-    --color-text : var(--colo-black);
+  --color-surface: var(--color--withe);
+  --color-text: var(--colo-black);
 
-    &.dark{
-        --color-surface: #252525 ;
-        --color-text : #7f7f7f;
-    }
+  &.dark {
+    --color-surface: #252525;
+    --color-text: #7f7f7f;
+  }
 }
-
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-family: "Kanit", system-ui;
+  font-family: "Kanit", system-ui;
 }
 
 input,
@@ -37,12 +36,12 @@ datalist,
 output,
 option,
 optgroup {
-    font: inherit;
+  font: inherit;
 }
 
-body{
-    background-color: var(--color-surface);
-    color: var(--color-text);
-    inline-size: min(45rem , 100% - 2rem);
-    margin-inline: auto;
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  inline-size: min(45rem, 100% - 2rem);
+  margin-inline: auto;
 }
