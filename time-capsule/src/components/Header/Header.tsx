@@ -1,13 +1,13 @@
-import {ReactNode} from 'react'
+import { ReactNode } from "react";
 
-import styles from './Header.module.css'
+import styles from "./Header.module.css";
 
 function Header(): ReactNode {
-    return (
-        <header>
-            <h1 className={styles.title}>Time Capsules</h1>
+  return (
+    <header className={styles.title}>
+      <h1>Time Capsules</h1>
     </header>
-    );
+  );
 }
 
 export default Header;
