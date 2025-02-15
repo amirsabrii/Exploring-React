@@ -4,6 +4,8 @@ import styles from "./Toolbar.module.css";
 import TextInput from "../Text-input/Text-input.tsx";
 import MingcuteSearch2Line from "../../icons/MingcuteSearch2Line.tsx";
 
+import Select from "../Select/Select.tsx";
+
 function Toolbar(): ReactNode {
   return (
     <div className={styles.toolbar}>
@@ -12,15 +14,14 @@ function Toolbar(): ReactNode {
         suffixIcon={<MingcuteSearch2Line />}
       />
 
-      <select>
-        <option selected value="all">
-          all
-        </option>
-        <option value="work">work</option>
-        <option value="frindly">frindly</option>
-        <option value="family">family</option>
-      </select>
-
+      <Select
+        options={[
+          { value: "all", label: "all" },
+          { value: "work", label: "work" },
+          { value: "frindly", label: "frindly" },
+          { value: "family", label: "family" },
+        ]}
+      ></Select>
       <button>..</button>
     </div>
   );
