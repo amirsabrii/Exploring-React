@@ -5,6 +5,8 @@ import TextInput from "../Text-input/Text-input.tsx";
 import MingcuteSearch2Line from "../../icons/MingcuteSearch2Line.tsx";
 
 import Select from "../Select/Select.tsx";
+import Button from "../Button/button.tsx";
+import SolarMoonBold from "../../icons/SolarMoonBold.tsx";
 
 function Toolbar(): ReactNode {
   return (
@@ -22,7 +24,12 @@ function Toolbar(): ReactNode {
           { value: "family", label: "family" },
         ]}
       ></Select>
-      <button>..</button>
+      <Button
+        size="medium"
+        variant="otlined"
+        shape="circle"
+        suffixIcon={<SolarMoonBold />}
+      ></Button>
     </div>
   );
 }
