@@ -31,6 +31,16 @@
     }
   }
 
+  &.ghost {
+    background-color: transparent;
+
+    border: none;
+  }
+
+  &.small {
+    block-size: 2rem;
+  }
+
   &.medium {
     block-size: 2.25rem;
   }
@@ -61,5 +71,19 @@
 
   &.circle {
     border-radius: 999rem;
+  }
+
+  &.danger {
+    &:hover,
+    &:focus {
+      color: var(--color--danger);
+    }
+  }
+
+  &.golden {
+    &:hover,
+    &:focus {
+      color: var(--color--golde-yellow);
+    }
   }
 }
