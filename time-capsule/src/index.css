@@ -6,6 +6,8 @@
   --color--golde-yellow-fade: hsl(52, 100%, 72%);
   --color--danger: hsl(0, 100%, 47%);
 
+  --color-border: hsl(38, 100%, 80%);
+
   --color-surface: var(--color--withe);
   --color-text: var(--colo-black);
 
