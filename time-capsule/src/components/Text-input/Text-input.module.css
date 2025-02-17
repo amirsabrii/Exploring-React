@@ -1,6 +1,7 @@
 .text-input {
   display: flex;
   justify-content: center;
+  flex: 1;
   gap: 1rem;
 
   padding: 0.25rem;
