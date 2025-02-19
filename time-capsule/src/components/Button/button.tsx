@@ -7,14 +7,14 @@ import styles from "./button.module.css";
 type Variant = "solid" | "otlined" | "ghost";
 type Size = "small" | "medium" | "large";
 type Shape = "rectangel" | "circle" | "square";
-type HoverColor = "danger" | "golden";
+type HoverColor = "none" | "danger" | "golden";
 
 type Props = ComponentProps<"button"> & {
   variant?: Variant;
   size?: Size;
   shape?: Shape;
   suffixIcon?: ReactNode;
-  hoverColor: HoverColor;
+  hoverColor?: HoverColor;
 };
 
 function Button({
@@ -24,7 +24,7 @@ function Button({
   shape = "rectangel",
   className,
   suffixIcon,
-  hoverColor,
+  hoverColor = "none",
   ...otherProps
 }: Props): ReactNode {
   return (

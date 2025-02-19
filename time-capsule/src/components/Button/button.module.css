@@ -87,3 +87,10 @@
     }
   }
 }
+
+&.none {
+  &:hover,
+  &:focus {
+    color: transparent;
+  }
+}
