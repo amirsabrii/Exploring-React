@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header.tsx";
 import Toolbar from "./components/Toolbar/Toolbar.tsx";
 import Result from "./components/Result/Result.tsx";
+import CreateModal from "./components/CreateModal/CreateModal.tsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Toolbar />
         <Result />
       </main>
+      <CreateModal />
     </>
   );
 }
