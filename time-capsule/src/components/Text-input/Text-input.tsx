@@ -3,7 +3,7 @@ import { ComponentProps, ReactNode } from "react";
 import styles from "./Text-input.module.css";
 
 type Props = ComponentProps<"input"> & {
-  suffixIcon: ReactNode;
+  suffixIcon?: ReactNode;
 };
 
 function TextInput({ suffixIcon, ...otherProps }: Props): ReactNode {
