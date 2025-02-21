@@ -8,6 +8,7 @@ import styles from "./CreateModal.module.css";
 import TextInput from "../Text-input/Text-input.tsx";
 import TeaxtArea from "../TextArea/TeaxtArea.tsx";
 import DatetimeLocl from "../DatetimeLocal/DatetimeLocal.tsx";
+import Select from "../Select/Select.tsx";
 
 function CreateModal(): ReactNode {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -34,6 +35,14 @@ function CreateModal(): ReactNode {
           <TextInput placeholder="Youre title..."></TextInput>
           <TeaxtArea placeholder="Youre description" />
           <DatetimeLocl />
+          <Select
+            variant={"outlined"}
+            options={[
+              { value: "work", label: "work" },
+              { value: "frindly", label: "frindly" },
+              { value: "family", label: "family" },
+            ]}
+          ></Select>
 
           <div className={styles.action}>
             <Button type={"button"} variant={"solid"} onClick={CancelHandler}>
