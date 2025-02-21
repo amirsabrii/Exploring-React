@@ -50,24 +50,24 @@
   &.solid {
     select {
       background-color: var(--color--golde-yellow);
-      color: var(--color--withe);
+      color: var(--color-text);
     }
 
     &::after {
-      color: var(--color--withe);
+      color: var(--color-text);
     }
   }
 
   &.outlined {
     select {
       background-color: transparent;
-      color: var(--color--golde-yellow);
+      color: var(--color-text);
 
-      border: 1px solid var(--color--golde-yellow);
+      border: 2px solid var(--color--golde-yellow);
     }
 
     &::after {
-      color: var(--color--golde-yellow);
+      color: var(--color-text);
     }
   }
 }
