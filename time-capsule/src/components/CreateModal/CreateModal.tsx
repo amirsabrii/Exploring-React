@@ -6,6 +6,7 @@ import MdiLightPlus from "../../icons/MdiLightPlus.tsx";
 
 import styles from "./CreateModal.module.css";
 import TextInput from "../Text-input/Text-input.tsx";
+import TeaxtArea from "../TextArea/TeaxtArea.tsx";
 
 function CreateModal(): ReactNode {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -29,7 +30,8 @@ function CreateModal(): ReactNode {
         <div className={styles.content}>
           <div className={styles.title}>New Appointment</div>
 
-          <TextInput placeholder="Youre Note..."></TextInput>
+          <TextInput placeholder="Youre title..."></TextInput>
+          <TeaxtArea placeholder="Youre description" />
 
           <div className={styles.action}>
             <Button type={"button"} variant={"solid"} onClick={CancelHandler}>
