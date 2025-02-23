@@ -1,6 +1,6 @@
 :root {
-  --colo-black: #252525;
-  --color--withe: #f7f7f7;
+  --colo-black: hsl(0, 0%, 15%);
+  --color--withe: hsl(0, 0%, 97%);
   --color--golde-yellow: hsl(45, 100%, 60%);
   --color--golde-yellow-hover: hsl(52, 100%, 50%);
   --color--golde-yellow-fade: hsl(52, 100%, 72%);
@@ -12,8 +12,8 @@
   --color-text: var(--colo-black);
 
   &.dark {
-    --color-surface: #252525;
-    --color-text: #7f7f7f;
+    --color-surface: hsl(0, 0%, 15%);
+    --color-text: hsl(0, 0%, 97%);
   }
 }
 

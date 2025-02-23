@@ -1,6 +1,6 @@
 import { ComponentProps, ReactNode } from "react";
 
-import styles from "./Text-input.module.css";
+import styles from "./TextInput.module.css";
 
 type Props = ComponentProps<"input"> & {
   suffixIcon?: ReactNode;

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Capsule } from "../../types/capsule-type.ts";
+import { Capsule } from "../../types/capsule.ts";
 
 import styles from "./Result.module.css";
 import Button from "../Button/button.tsx";

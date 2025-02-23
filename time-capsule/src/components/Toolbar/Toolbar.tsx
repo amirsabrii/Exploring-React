@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 import styles from "./Toolbar.module.css";
-import TextInput from "../Text-input/Text-input.tsx";
+import TextInput from "../TextInput/TextInput.tsx";
 import MingcuteSearch2Line from "../../icons/MingcuteSearch2Line.tsx";
 
 import Select from "../Select/Select.tsx";
@@ -20,7 +20,7 @@ function Toolbar(): ReactNode {
         options={[
           { value: "all", label: "all" },
           { value: "work", label: "work" },
-          { value: "frindly", label: "frindly" },
+          { value: "friendly", label: "friendly" },
           { value: "family", label: "family" },
         ]}
       ></Select>

@@ -5,7 +5,7 @@ import Button from "../Button/button.tsx";
 import MdiLightPlus from "../../icons/MdiLightPlus.tsx";
 
 import styles from "./CreateModal.module.css";
-import TextInput from "../Text-input/Text-input.tsx";
+import TextInput from "../TextInput/TextInput.tsx";
 import TeaxtArea from "../TextArea/TeaxtArea.tsx";
 import DatetimeLocl from "../DatetimeLocal/DatetimeLocal.tsx";
 import Select from "../Select/Select.tsx";
@@ -28,7 +28,7 @@ function CreateModal(): ReactNode {
         </Button>
       </div>
 
-      <dialog ref={dialogRef}>
+      <dialog className={styles.dialog} ref={dialogRef}>
         <div className={styles.content}>
           <div className={styles.title}>New Appointment</div>
 
@@ -39,7 +39,7 @@ function CreateModal(): ReactNode {
             variant={"outlined"}
             options={[
               { value: "work", label: "work" },
-              { value: "frindly", label: "frindly" },
+              { value: "friendly", label: "friendly" },
               { value: "family", label: "family" },
             ]}
           ></Select>
