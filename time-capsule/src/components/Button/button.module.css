@@ -10,24 +10,24 @@
   transition: 0.2s;
 
   &.solid {
-    background-color: var(--color--golde-yellow);
+    background-color: var(--color--gold-yellow);
 
     border: none;
 
     &:hover,
     &:focus {
-      background-color: var(--color--golde-yellow-hover);
+      background-color: var(--color--gold-yellow-hover);
     }
   }
 
   &.otlined {
-    background-color: var(--color-surface);
+    background-color: var(--color--surface);
 
-    border: 1px solid var(--color--golde-yellow);
+    border: 1px solid var(--color--gold-yellow);
 
     &:hover,
     &:focus {
-      background-color: var(--color--golde-yellow-fade);
+      background-color: var(--color--gold-yellow-fade);
     }
   }
 
@@ -83,7 +83,7 @@
   &.golden {
     &:hover,
     &:focus {
-      color: var(--color--golde-yellow);
+      color: var(--color--gold-yellow);
     }
   }
 }

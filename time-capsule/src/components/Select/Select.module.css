@@ -44,30 +44,30 @@
   }
 
   &:focus-within {
-    outline: 2px solid var(--color--golde-yellow);
+    outline: 2px solid var(--color--gold-yellow);
   }
 
   &.solid {
     select {
-      background-color: var(--color--golde-yellow);
-      color: var(--color-text);
+      background-color: var(--color--gold-yellow);
+      color: var(--color--text);
     }
 
     &::after {
-      color: var(--color-text);
+      color: var(--color--text);
     }
   }
 
   &.outlined {
     select {
       background-color: transparent;
-      color: var(--color-text);
+      color: var(--color--text);
 
-      border: 2px solid var(--color--golde-yellow);
+      border: 2px solid var(--color--gold-yellow);
     }
 
     &::after {
-      color: var(--color-text);
+      color: var(--color--text);
     }
   }
 }
