@@ -1,4 +1,4 @@
-import { FormEvent, ReactNode } from "react";
+import { FormEvent, ReactNode, useContext } from "react";
 
 import TextInput from "../TextInput/TextInput.tsx";
 import TeaxtArea from "../TextArea/TeaxtArea.tsx";
@@ -9,14 +9,16 @@ import Button from "../Button/button.tsx";
 import styles from "./CreateForm.module.css";
 import { Capsule } from "../../types/capsule.ts";
 import { Category } from "../../types/category.ts";
+import { capsuleContext } from "../../App.tsx";
 
 type Props = {
-  setCpsule: React.Dispatch<React.SetStateAction<Capsule[]>>;
   onCancle: () => void;
   onSubmit: () => void;
 };
 
-function CreateForm({ onCancle, onSubmit, setCpsule }: Props): ReactNode {
+function CreateForm({ onCancle, onSubmit }: Props): ReactNode {
+  const { setCpsule } = useContext(capsuleContext);
+
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 

@@ -1,16 +1,17 @@
-import { ReactNode } from "react";
-import { Capsule } from "../../types/capsule.ts";
+import { ReactNode, useContext } from "react";
 
-import styles from "./Result.module.css";
+import { capsuleContext } from "../../App.tsx";
+
 import Button from "../Button/button.tsx";
+
 import MingcuteDeleteLine from "../../icons/MingcuteDeleteLine.tsx";
 import IconParkSolidPencil from "../../icons/IconParkSolidPencil.tsx";
 
-type Props = {
-  capsule: Capsule[];
-};
+import styles from "./Result.module.css";
 
-function Result({ capsule }: Props): ReactNode {
+function Result(): ReactNode {
+  const { capsule } = useContext(capsuleContext);
+
   return (
     <ul className={styles.result}>
       {capsule.map((capsule) => (

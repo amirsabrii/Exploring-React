@@ -1,7 +1,5 @@
 import { ReactNode, useRef } from "react";
 
-import { Capsule } from "../../types/capsule.ts";
-
 import Button from "../Button/button.tsx";
 
 import MdiLightPlus from "../../icons/MdiLightPlus.tsx";
@@ -10,11 +8,7 @@ import styles from "./CreateModal.module.css";
 
 import CreateForm from "../CreateForm/CreateForm.tsx";
 
-type Props = {
-  setCpsule: React.Dispatch<React.SetStateAction<Capsule[]>>;
-};
-
-function CreateModal({ setCpsule }: Props): ReactNode {
+function CreateModal(): ReactNode {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const dialogHandler = (): void => {
@@ -33,7 +27,6 @@ function CreateModal({ setCpsule }: Props): ReactNode {
         <CreateForm
           onCancle={() => dialogRef.current?.close()}
           onSubmit={() => dialogRef.current?.close()}
-          setCpsule={setCpsule}
         />
       </dialog>
     </>

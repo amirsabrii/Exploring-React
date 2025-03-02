@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { createContext, useState } from "react";
 
 import { Capsule } from "./types/capsule.ts";
 
@@ -8,33 +8,28 @@ import Toolbar from "./components/Toolbar/Toolbar.tsx";
 import Result from "./components/Result/Result.tsx";
 import CreateModal from "./components/CreateModal/CreateModal.tsx";
 
+type CapsuleContextsetCpsule = {
+  capsule: Capsule[];
+  setCpsule: React.Dispatch<React.SetStateAction<Capsule[]>>;
+};
+
+export const capsuleContext = createContext<CapsuleContextsetCpsule>({
+  capsule: [],
+  setCpsule: () => {},
+});
+
 function App() {
-  const [capsule, setCpsule] = useState<Capsule[]>([
-    {
-      id: 1,
-      title: "gym",
-      describtion: "going to the gym",
-      date: new Date(2025, 4, 15),
-      category: "family",
-    },
-    {
-      id: 2,
-      title: "school",
-      describtion: "going to the gym",
-      date: new Date(2025, 4, 15),
-      category: "work",
-    },
-  ]);
+  const [capsule, setCpsule] = useState<Capsule[]>([]);
 
   return (
-    <>
+    <capsuleContext.Provider value={{ capsule, setCpsule }}>
       <Header />
       <main>
         <Toolbar />
-        <Result capsule={capsule} />
+        <Result />
       </main>
-      <CreateModal setCpsule={setCpsule} />
-    </>
+      <CreateModal />
+    </capsuleContext.Provider>
   );
 }
 
