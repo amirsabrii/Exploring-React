@@ -1,6 +1,6 @@
 import { ReactNode, useContext } from "react";
 
-import { capsuleContext } from "../../App.tsx";
+import { CapsuleContext } from "../../context/CapsuleContext.tsx";
 
 import Button from "../Button/button.tsx";
 
@@ -10,7 +10,7 @@ import IconParkSolidPencil from "../../icons/IconParkSolidPencil.tsx";
 import styles from "./Result.module.css";
 
 function Result(): ReactNode {
-  const { capsule } = useContext(capsuleContext);
+  const { capsule } = useContext(CapsuleContext);
 
   return (
     <ul className={styles.result}>

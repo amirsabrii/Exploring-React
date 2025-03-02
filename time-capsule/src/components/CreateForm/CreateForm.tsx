@@ -9,7 +9,8 @@ import Button from "../Button/button.tsx";
 import styles from "./CreateForm.module.css";
 import { Capsule } from "../../types/capsule.ts";
 import { Category } from "../../types/category.ts";
-import { capsuleContext } from "../../App.tsx";
+
+import { CapsuleContext } from "../../context/CapsuleContext.tsx";
 
 type Props = {
   onCancle: () => void;
@@ -17,7 +18,7 @@ type Props = {
 };
 
 function CreateForm({ onCancle, onSubmit }: Props): ReactNode {
-  const { setCpsule } = useContext(capsuleContext);
+  const { setCpsule } = useContext(CapsuleContext);
 
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
