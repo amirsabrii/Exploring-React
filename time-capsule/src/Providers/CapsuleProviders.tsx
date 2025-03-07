@@ -12,8 +12,16 @@ function CapsuleProviders({ children }: Props): ReactNode {
     localStorage.setItem("capsules", JSON.stringify(capsule));
   }, [capsule]);
 
+  const createCapsule = (capsule: Capsule) => {
+    setCpsule((old) => [...old, capsule]);
+  };
+
+  const removeCapsuloe = (id: string | number) => {
+    setCpsule((old) => old.filter((x) => x.id !== id));
+  };
+
   return (
-    <CapsuleContext.Provider value={{ capsule, setCpsule }}>
+    <CapsuleContext.Provider value={{ capsule, createCapsule, removeCapsuloe }}>
       {children}
     </CapsuleContext.Provider>
   );

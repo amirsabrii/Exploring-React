@@ -3,10 +3,12 @@ import { createContext } from "react";
 
 type CapsuleContextsetCpsule = {
   capsule: Capsule[];
-  setCpsule: React.Dispatch<React.SetStateAction<Capsule[]>>;
+  createCapsule: (capsule: Capsule) => void;
+  removeCapsuloe: (id: string | number) => void;
 };
 
 export const CapsuleContext = createContext<CapsuleContextsetCpsule>({
   capsule: [],
-  setCpsule: () => {},
+  createCapsule: () => {},
+  removeCapsuloe: () => {},
 });

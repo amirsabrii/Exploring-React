@@ -18,7 +18,7 @@ type Props = {
 };
 
 function CreateForm({ onCancle, onSubmit }: Props): ReactNode {
-  const { setCpsule } = useContext(CapsuleContext);
+  const { createCapsule } = useContext(CapsuleContext);
 
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -26,14 +26,14 @@ function CreateForm({ onCancle, onSubmit }: Props): ReactNode {
     const formData = new FormData(e.currentTarget);
 
     const capsule: Capsule = {
-      id: 5,
+      id: crypto.randomUUID(),
       title: formData.get("title") as string,
       describtion: formData.get("describtion") as string,
       date: new Date(formData.get("date") as string),
       category: formData.get("category") as Category,
     };
 
-    setCpsule((old) => [...old, capsule]);
+    createCapsule(capsule);
     onSubmit();
   };
 

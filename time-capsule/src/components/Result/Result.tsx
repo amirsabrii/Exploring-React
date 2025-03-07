@@ -10,7 +10,7 @@ import IconParkSolidPencil from "../../icons/IconParkSolidPencil.tsx";
 import styles from "./Result.module.css";
 
 function Result(): ReactNode {
-  const { capsule } = useContext(CapsuleContext);
+  const { capsule, removeCapsuloe } = useContext(CapsuleContext);
 
   return (
     <ul className={styles.result}>
@@ -20,7 +20,7 @@ function Result(): ReactNode {
 
           <div className={styles.action}>
             <Button hoverColor={"danger"} size={"small"} variant={"ghost"}>
-              <MingcuteDeleteLine />
+              <MingcuteDeleteLine onClick={() => removeCapsuloe(capsule.id)} />
             </Button>
 
             <Button hoverColor={"golden"} size={"small"} variant={"ghost"}>
