@@ -19,12 +19,12 @@ function Result(): ReactNode {
           <div className={styles.title}>{capsule.title}</div>
 
           <div className={styles.action}>
-            <Button ColorIcon={"danger"} size={"small"} variant={"ghost"}>
-              <MingcuteDeleteLine onClick={() => removeCapsuloe(capsule.id)} />
-            </Button>
-
             <Button ColorIcon={"golden"} size={"small"} variant={"ghost"}>
               <IconParkSolidPencil />
+            </Button>
+
+            <Button ColorIcon={"danger"} size={"small"} variant={"ghost"}>
+              <MingcuteDeleteLine onClick={() => removeCapsuloe(capsule.id)} />
             </Button>
           </div>
         </li>
