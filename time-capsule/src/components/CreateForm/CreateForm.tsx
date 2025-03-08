@@ -63,7 +63,7 @@ function CreateForm({ onCancle, onSubmit }: Props): ReactNode {
         <Button type={"button"} variant={"solid"} onClick={CancelHandler}>
           Cancel
         </Button>
-        <Button variant={"otlined"}>Apply</Button>
+        <Button>Apply</Button>
       </div>
     </form>
   );

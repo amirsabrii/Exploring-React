@@ -74,23 +74,10 @@
   }
 
   &.danger {
-    &:hover,
-    &:focus {
-      color: var(--color--danger);
-    }
+    color: var(--color--danger);
   }
 
   &.golden {
-    &:hover,
-    &:focus {
-      color: var(--color--gold-yellow);
-    }
-  }
-}
-
-&.none {
-  &:hover,
-  &:focus {
-    color: transparent;
+    color: var(--color--gold-yellow);
   }
 }

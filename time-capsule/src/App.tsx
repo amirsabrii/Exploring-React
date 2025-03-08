@@ -6,17 +6,20 @@ import CreateModal from "./components/CreateModal/CreateModal.tsx";
 import CapsuleProviders from "./Providers/CapsuleProviders.tsx";
 
 import "./App.css";
+import ThemeProviders from "./Providers/ThemeProviders.tsx";
 
 function App() {
   return (
-    <CapsuleProviders>
-      <Header />
-      <main>
-        <Toolbar />
-        <Result />
-      </main>
-      <CreateModal />
-    </CapsuleProviders>
+    <ThemeProviders>
+      <CapsuleProviders>
+        <Header />
+        <main>
+          <Toolbar />
+          <Result />
+        </main>
+        <CreateModal />
+      </CapsuleProviders>
+    </ThemeProviders>
   );
 }
 
