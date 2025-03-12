@@ -10,7 +10,7 @@ import CreateForm from "../CreateForm/CreateForm.tsx";
 import { CapsuleContext } from "../../context/CapsuleContext.tsx";
 
 function CreateModal(): ReactNode {
-  const { editingCapsule, setEditCapsule } = useContext(CapsuleContext);
+  const { editingCapsule, setEditingCapsule } = useContext(CapsuleContext);
 
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -26,7 +26,7 @@ function CreateModal(): ReactNode {
 
   const closeModal = () => {
     dialogRef.current?.close();
-    setEditCapsule(null);
+    setEditingCapsule(null);
   };
 
   return (

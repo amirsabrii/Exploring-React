@@ -6,7 +6,7 @@ type CapsuleContextsetCapsule = {
   createCapsule: (capsule: Capsule) => void;
   removeCapsule: (id: string | number) => void;
   editingCapsule: Capsule | null;
-  setEditCapsule: React.Dispatch<React.SetStateAction<Capsule | null>>;
+  setEditingCapsule: React.Dispatch<React.SetStateAction<Capsule | null>>;
   editCapsule: (capsule: Capsule) => void;
 };
 
@@ -15,6 +15,6 @@ export const CapsuleContext = createContext<CapsuleContextsetCapsule>({
   createCapsule: () => {},
   removeCapsule: () => {},
   editingCapsule: null,
-  setEditCapsule: () => {},
+  setEditingCapsule: () => {},
   editCapsule: () => {},
 });

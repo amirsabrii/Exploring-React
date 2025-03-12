@@ -17,6 +17,7 @@ function Toolbar(): ReactNode {
   return (
     <div className={styles.toolbar}>
       <TextInput
+        className={styles.input}
         placeholder="Search Note..."
         suffixIcon={<MingcuteSearch2Line />}
       />

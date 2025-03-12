@@ -10,7 +10,8 @@ import IconParkSolidPencil from "../../icons/IconParkSolidPencil.tsx";
 import styles from "./Result.module.css";
 
 function Result(): ReactNode {
-  const { capsule, removeCapsule, setEditCapsule } = useContext(CapsuleContext);
+  const { capsule, removeCapsule, setEditingCapsule } =
+    useContext(CapsuleContext);
 
   return (
     <ul className={styles.result}>
@@ -24,7 +25,7 @@ function Result(): ReactNode {
               size="small"
               variant="ghost"
               onClick={() => {
-                setEditCapsule(capsule);
+                setEditingCapsule(capsule);
               }}
             >
               <IconParkSolidPencil />

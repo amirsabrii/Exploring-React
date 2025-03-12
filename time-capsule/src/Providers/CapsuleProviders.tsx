@@ -7,7 +7,7 @@ type Props = PropsWithChildren;
 
 function CapsuleProviders({ children }: Props): ReactNode {
   const [capsule, setCapsule] = useState<Capsule[]>(loadCapsuleInitialState);
-  const [editingCapsule, setEditCapsule] = useState<Capsule | null>(null);
+  const [editingCapsule, setEditingCapsule] = useState<Capsule | null>(null);
 
   useEffect(() => {
     localStorage.setItem("capsules", JSON.stringify(capsule));
@@ -34,7 +34,7 @@ function CapsuleProviders({ children }: Props): ReactNode {
         createCapsule,
         removeCapsule,
         editingCapsule,
-        setEditCapsule,
+        setEditingCapsule,
         editCapsule,
       }}
     >
