@@ -8,12 +8,12 @@ function ThemeProviders({ children }: Props): ReactNode {
   const [theme, setTheme] = useState<Theme>(themeInitialState);
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("themes", theme);
+    document.documentElement.dataset.theme = theme;
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme((old) => (old === "light" ? "dark" : "light"));
-    document.documentElement.dataset.theme = theme;
   };
 
   return (
@@ -24,7 +24,7 @@ function ThemeProviders({ children }: Props): ReactNode {
 }
 
 function themeInitialState(): Theme {
-  const items = localStorage.getItem("theme");
+  const items = localStorage.getItem("themes");
 
   return items === "dark" || items === "light" ? items : "light";
 }
