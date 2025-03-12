@@ -13,12 +13,13 @@ import { Category } from "../../types/category.ts";
 import { CapsuleContext } from "../../context/CapsuleContext.tsx";
 
 type Props = {
-  onCancle: () => void;
+  onCancel: () => void;
   onSubmit: () => void;
 };
 
-function CreateForm({ onCancle, onSubmit }: Props): ReactNode {
-  const { createCapsule } = useContext(CapsuleContext);
+function CreateForm({ onCancel, onSubmit }: Props): ReactNode {
+  const { createCapsule, editCapsule, editingCapsule } =
+    useContext(CapsuleContext);
 
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -26,32 +27,44 @@ function CreateForm({ onCancle, onSubmit }: Props): ReactNode {
     const formData = new FormData(e.currentTarget);
 
     const capsule: Capsule = {
-      id: crypto.randomUUID(),
+      id: editCapsule?.id ?? crypto.randomUUID(),
       title: formData.get("title") as string,
       describtion: formData.get("describtion") as string,
       date: new Date(formData.get("date") as string),
       category: formData.get("category") as Category,
     };
-
-    createCapsule(capsule);
+    if (editCapsule) {
+      editingCapsule(capsule);
+    } else {
+      createCapsule(capsule);
+    }
     onSubmit();
   };
 
   const CancelHandler = (): void => {
     // dialogRef.current?.close();
-    onCancle();
+    onCancel();
   };
 
   return (
     <form className={styles.content} onSubmit={submitHandler}>
       <div className={styles.title}>New Appointment</div>
 
-      <TextInput name="title" placeholder="Youre title..."></TextInput>
-      <TeaxtArea name="description" placeholder="Youre description" />
+      <TextInput
+        name="title"
+        placeholder="Youre title..."
+        defaultValue={editCapsule?.title}
+      ></TextInput>
+      <TeaxtArea
+        name="describtion"
+        placeholder="Youre description"
+        defaultValue={editCapsule?.describtion}
+      />
       <DatetimeLocl name="date" />
       <Select
         name="category"
         variant={"outlined"}
+        defaultValue={editCapsule?.category}
         options={[
           { value: "work", label: "work" },
           { value: "friendly", label: "friendly" },

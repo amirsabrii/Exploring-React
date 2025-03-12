@@ -7,6 +7,7 @@ type Props = PropsWithChildren;
 
 function CapsuleProviders({ children }: Props): ReactNode {
   const [capsule, setCpsule] = useState<Capsule[]>(loadCapsuleInitialState);
+  const [editCapsule, setEditCapsule] = useState<Capsule | null>(null);
 
   useEffect(() => {
     localStorage.setItem("capsules", JSON.stringify(capsule));
@@ -16,12 +17,27 @@ function CapsuleProviders({ children }: Props): ReactNode {
     setCpsule((old) => [...old, capsule]);
   };
 
+  const editingCapsule = (capsule: Capsule): void => {
+    setCpsule((old) =>
+      old.map((x) => (x.id === capsule.id ? { ...capsule } : x)),
+    );
+  };
+
   const removeCapsuloe = (id: string | number) => {
     setCpsule((old) => old.filter((x) => x.id !== id));
   };
 
   return (
-    <CapsuleContext.Provider value={{ capsule, createCapsule, removeCapsuloe }}>
+    <CapsuleContext.Provider
+      value={{
+        capsule,
+        createCapsule,
+        removeCapsuloe,
+        editCapsule,
+        setEditCapsule,
+        editingCapsule,
+      }}
+    >
       {children}
     </CapsuleContext.Provider>
   );
