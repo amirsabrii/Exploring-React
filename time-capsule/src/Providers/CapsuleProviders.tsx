@@ -6,25 +6,25 @@ import { CapsuleContext } from "../context/CapsuleContext.tsx";
 type Props = PropsWithChildren;
 
 function CapsuleProviders({ children }: Props): ReactNode {
-  const [capsule, setCpsule] = useState<Capsule[]>(loadCapsuleInitialState);
-  const [editCapsule, setEditCapsule] = useState<Capsule | null>(null);
+  const [capsule, setCapsule] = useState<Capsule[]>(loadCapsuleInitialState);
+  const [editingCapsule, setEditCapsule] = useState<Capsule | null>(null);
 
   useEffect(() => {
     localStorage.setItem("capsules", JSON.stringify(capsule));
   }, [capsule]);
 
   const createCapsule = (capsule: Capsule) => {
-    setCpsule((old) => [...old, capsule]);
+    setCapsule((old) => [...old, capsule]);
   };
 
-  const editingCapsule = (capsule: Capsule): void => {
-    setCpsule((old) =>
+  const editCapsule = (capsule: Capsule): void => {
+    setCapsule((old) =>
       old.map((x) => (x.id === capsule.id ? { ...capsule } : x)),
     );
   };
 
-  const removeCapsuloe = (id: string | number) => {
-    setCpsule((old) => old.filter((x) => x.id !== id));
+  const removeCapsule = (id: string | number) => {
+    setCapsule((old) => old.filter((x) => x.id !== id));
   };
 
   return (
@@ -32,10 +32,10 @@ function CapsuleProviders({ children }: Props): ReactNode {
       value={{
         capsule,
         createCapsule,
-        removeCapsuloe,
-        editCapsule,
-        setEditCapsule,
+        removeCapsule,
         editingCapsule,
+        setEditCapsule,
+        editCapsule,
       }}
     >
       {children}

@@ -1,20 +1,20 @@
 import { Capsule } from "../types/capsule.ts";
 import { createContext } from "react";
 
-type CapsuleContextsetCpsule = {
+type CapsuleContextsetCapsule = {
   capsule: Capsule[];
   createCapsule: (capsule: Capsule) => void;
-  removeCapsuloe: (id: string | number) => void;
-  editCapsule: Capsule | null;
+  removeCapsule: (id: string | number) => void;
+  editingCapsule: Capsule | null;
   setEditCapsule: React.Dispatch<React.SetStateAction<Capsule | null>>;
-  editingCapsule: (cpsule: Capsule) => void;
+  editCapsule: (capsule: Capsule) => void;
 };
 
-export const CapsuleContext = createContext<CapsuleContextsetCpsule>({
+export const CapsuleContext = createContext<CapsuleContextsetCapsule>({
   capsule: [],
   createCapsule: () => {},
-  removeCapsuloe: () => {},
-  editCapsule: null,
+  removeCapsule: () => {},
+  editingCapsule: null,
   setEditCapsule: () => {},
-  editingCapsule: () => {},
+  editCapsule: () => {},
 });

@@ -14,7 +14,7 @@ type Props = ComponentProps<"button"> & {
   size?: Size;
   shape?: Shape;
   suffixIcon?: ReactNode;
-  ColorIcon?: ColorIcon;
+  colorIcon?: ColorIcon;
 };
 
 function Button({
@@ -24,7 +24,7 @@ function Button({
   shape = "rectangel",
   className,
   suffixIcon,
-  ColorIcon = "none",
+  colorIcon = "none",
   ...otherProps
 }: Props): ReactNode {
   return (
@@ -34,7 +34,7 @@ function Button({
         styles[variant],
         styles[size],
         styles[shape],
-        styles[ColorIcon],
+        styles[colorIcon],
         className,
       )}
       {...otherProps}

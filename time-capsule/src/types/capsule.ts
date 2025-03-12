@@ -4,6 +4,6 @@ export type Capsule = {
   id: string | number;
   title: string;
   date: Date;
-  describtion: string;
+  description: string;
   category: Category;
 };

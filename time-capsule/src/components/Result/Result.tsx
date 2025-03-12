@@ -10,8 +10,7 @@ import IconParkSolidPencil from "../../icons/IconParkSolidPencil.tsx";
 import styles from "./Result.module.css";
 
 function Result(): ReactNode {
-  const { capsule, removeCapsuloe, setEditCapsule } =
-    useContext(CapsuleContext);
+  const { capsule, removeCapsule, setEditCapsule } = useContext(CapsuleContext);
 
   return (
     <ul className={styles.result}>
@@ -21,9 +20,9 @@ function Result(): ReactNode {
 
           <div className={styles.action}>
             <Button
-              ColorIcon={"golden"}
-              size={"small"}
-              variant={"ghost"}
+              colorIcon="golden"
+              size="small"
+              variant="ghost"
               onClick={() => {
                 setEditCapsule(capsule);
               }}
@@ -31,8 +30,8 @@ function Result(): ReactNode {
               <IconParkSolidPencil />
             </Button>
 
-            <Button ColorIcon={"danger"} size={"small"} variant={"ghost"}>
-              <MingcuteDeleteLine onClick={() => removeCapsuloe(capsule.id)} />
+            <Button colorIcon={"danger"} size={"small"} variant={"ghost"}>
+              <MingcuteDeleteLine onClick={() => removeCapsule(capsule.id)} />
             </Button>
           </div>
         </li>

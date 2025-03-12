@@ -18,7 +18,7 @@ type Props = {
 };
 
 function CreateForm({ onCancel, onSubmit }: Props): ReactNode {
-  const { createCapsule, editCapsule, editingCapsule } =
+  const { createCapsule, editingCapsule, editCapsule } =
     useContext(CapsuleContext);
 
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
@@ -27,14 +27,14 @@ function CreateForm({ onCancel, onSubmit }: Props): ReactNode {
     const formData = new FormData(e.currentTarget);
 
     const capsule: Capsule = {
-      id: editCapsule?.id ?? crypto.randomUUID(),
+      id: editingCapsule?.id ?? crypto.randomUUID(),
       title: formData.get("title") as string,
-      describtion: formData.get("describtion") as string,
+      description: formData.get("description") as string,
       date: new Date(formData.get("date") as string),
       category: formData.get("category") as Category,
     };
-    if (editCapsule) {
-      editingCapsule(capsule);
+    if (editingCapsule) {
+      editCapsule(capsule);
     } else {
       createCapsule(capsule);
     }
@@ -42,7 +42,6 @@ function CreateForm({ onCancel, onSubmit }: Props): ReactNode {
   };
 
   const CancelHandler = (): void => {
-    // dialogRef.current?.close();
     onCancel();
   };
 
@@ -52,19 +51,19 @@ function CreateForm({ onCancel, onSubmit }: Props): ReactNode {
 
       <TextInput
         name="title"
-        placeholder="Youre title..."
-        defaultValue={editCapsule?.title}
+        placeholder="your title..."
+        defaultValue={editingCapsule?.title}
       ></TextInput>
       <TeaxtArea
-        name="describtion"
-        placeholder="Youre description"
-        defaultValue={editCapsule?.describtion}
+        name="description"
+        placeholder="your description"
+        defaultValue={editingCapsule?.description}
       />
       <DatetimeLocl name="date" />
       <Select
         name="category"
         variant={"outlined"}
-        defaultValue={editCapsule?.category}
+        defaultValue={editingCapsule?.category}
         options={[
           { value: "work", label: "work" },
           { value: "friendly", label: "friendly" },
