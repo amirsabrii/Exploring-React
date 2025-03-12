@@ -1,28 +1,18 @@
-import { ReactNode } from "react";
-import { Capsule } from "../../types/capsule.ts";
+import { ReactNode, useContext } from "react";
 
-import styles from "./Result.module.css";
+import { CapsuleContext } from "../../context/CapsuleContext.tsx";
+
 import Button from "../Button/button.tsx";
+
 import MingcuteDeleteLine from "../../icons/MingcuteDeleteLine.tsx";
 import IconParkSolidPencil from "../../icons/IconParkSolidPencil.tsx";
 
+import styles from "./Result.module.css";
+
 function Result(): ReactNode {
-  const capsule: Capsule[] = [
-    {
-      id: 1,
-      title: "gym",
-      describtion: "going to the gym",
-      date: new Date(2025, 4, 15),
-      vibe: "good",
-    },
-    {
-      id: 1,
-      title: "school",
-      describtion: "going to the gym",
-      date: new Date(2025, 4, 15),
-      vibe: "good",
-    },
-  ];
+  const { capsule, removeCapsule, setEditingCapsule } =
+    useContext(CapsuleContext);
+
   return (
     <ul className={styles.result}>
       {capsule.map((capsule) => (
@@ -30,12 +20,19 @@ function Result(): ReactNode {
           <div className={styles.title}>{capsule.title}</div>
 
           <div className={styles.action}>
-            <Button hoverColor={"danger"} size={"small"} variant={"ghost"}>
-              <MingcuteDeleteLine />{" "}
+            <Button
+              colorIcon="golden"
+              size="small"
+              variant="ghost"
+              onClick={() => {
+                setEditingCapsule(capsule);
+              }}
+            >
+              <IconParkSolidPencil />
             </Button>
 
-            <Button hoverColor={"golden"} size={"small"} variant={"ghost"}>
-              <IconParkSolidPencil />{" "}
+            <Button colorIcon={"danger"} size={"small"} variant={"ghost"}>
+              <MingcuteDeleteLine onClick={() => removeCapsule(capsule.id)} />
             </Button>
           </div>
         </li>
