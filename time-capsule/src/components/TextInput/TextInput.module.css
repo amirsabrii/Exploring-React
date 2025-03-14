@@ -3,9 +3,8 @@
   align-items: center;
   justify-content: center;
   flex: 1;
-  /*gap: 1rem;*/
 
-  padding: 0.25rem;
+  padding: 0.5rem;
 
   border: 2px solid var(--color--gold-yellow);
   border-radius: 0.5rem;
@@ -21,7 +20,7 @@
     border: none;
     padding: 0.25rem;
 
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: 1;
 
     &:focus {
