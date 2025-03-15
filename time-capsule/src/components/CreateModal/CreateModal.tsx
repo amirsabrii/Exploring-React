@@ -1,32 +1,17 @@
-import { ReactNode, useContext, useEffect, useRef } from "react";
+import { ReactNode, useRef } from "react";
 
 import Button from "../Button/button.tsx";
+import TaskModal, { TaskModalRef } from "../TaskModal/TaskModal.tsx";
 
 import MdiLightPlus from "../../icons/MdiLightPlus.tsx";
 
 import styles from "./CreateModal.module.css";
 
-import CreateForm from "../CreateForm/CreateForm.tsx";
-import { CapsuleContext } from "../../context/CapsuleContext.tsx";
-
 function CreateModal(): ReactNode {
-  const { editingCapsule, setEditingCapsule } = useContext(CapsuleContext);
-
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const modalRef = useRef<TaskModalRef>(null);
 
   const dialogHandler = (): void => {
-    dialogRef.current?.showModal();
-  };
-
-  useEffect(() => {
-    if (editingCapsule) {
-      dialogRef.current?.showModal();
-    }
-  }, [editingCapsule]);
-
-  const closeModal = () => {
-    dialogRef.current?.close();
-    setEditingCapsule(null);
+    modalRef.current?.showModal();
   };
 
   return (
@@ -36,15 +21,7 @@ function CreateModal(): ReactNode {
           <MdiLightPlus />
         </Button>
       </div>
-
-      <dialog className={styles.dialog} ref={dialogRef}>
-        {editingCapsule && (
-          <CreateForm onCancel={closeModal} onSubmit={closeModal} />
-        )}
-        {!editingCapsule && (
-          <CreateForm onCancel={closeModal} onSubmit={closeModal} />
-        )}
-      </dialog>
+      <TaskModal ref={modalRef} />
     </>
   );
 }
