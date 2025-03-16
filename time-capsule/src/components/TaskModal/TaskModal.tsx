@@ -1,54 +1,39 @@
-import {
-  ReactNode,
-  useContext,
-  useEffect,
-  useRef,
-  forwardRef,
-  useImperativeHandle,
-} from "react";
+import {ReactNode, useRef, forwardRef, useImperativeHandle,} from "react";
+
+import TaskForm from "../TaskForm/TaskForm.tsx";
+
+import { Capsule } from "../../types/capsule.ts";
+
 import styles from "../CreateModal/CreateModal.module.css";
-import CreateForm from "../CreateForm/CreateForm.tsx";
-import { CapsuleContext } from "../../context/CapsuleContext.tsx";
 
 export type TaskModalRef = Pick<HTMLDialogElement, "showModal" | "close">;
 
-const TaskModal = forwardRef<TaskModalRef>(
-  function TaskModal(_, outerRef): ReactNode {
-    const { editingCapsule, setEditingCapsule } = useContext(CapsuleContext);
+type Props = {
+  editingCapsule?: Capsule;
+};
 
-    const innerRef = useRef<HTMLDialogElement>(null);
+const TaskModal = forwardRef<TaskModalRef, Props>(function TaskModal(
+  { editingCapsule}, outerRef,): ReactNode {
+  const innerRef = useRef<HTMLDialogElement>(null);
 
-    useImperativeHandle(outerRef, () => ({
-      showModal: (): void => {
-        innerRef.current?.showModal();
-      },
-      close: (): void => {
-        innerRef.current?.close();
-      },
-    }));
+  useImperativeHandle(outerRef, () => ({
+    showModal: (): void => {innerRef.current?.showModal();},
+    close: (): void => {innerRef.current?.close();},
+  }));
 
-    useEffect(() => {
-      if (editingCapsule) {
-        innerRef.current?.showModal();
-      }
-    }, [editingCapsule]);
+  const closeModal = () => {
+    innerRef.current?.close();
+  };
 
-    const closeModal = () => {
-      innerRef.current?.close();
-      setEditingCapsule(null);
-    };
-
-    return (
-      <dialog className={styles.dialog} ref={innerRef}>
-        {editingCapsule && (
-          <CreateForm onCancel={closeModal} onSubmit={closeModal} />
-        )}
-        {!editingCapsule && (
-          <CreateForm onCancel={closeModal} onSubmit={closeModal} />
-        )}
-      </dialog>
-    );
-  },
-);
+  return (
+    <dialog className={styles.dialog} ref={innerRef}>
+      <TaskForm
+        onCancel={closeModal}
+        onSubmit={closeModal}
+        editingCapsule={editingCapsule}
+      />
+    </dialog>
+  );
+});
 
 export default TaskModal;

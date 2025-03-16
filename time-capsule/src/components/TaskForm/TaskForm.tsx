@@ -6,20 +6,20 @@ import DatetimeLocl from "../DatetimeLocal/DatetimeLocal.tsx";
 import Select from "../Select/Select.tsx";
 import Button from "../Button/button.tsx";
 
-import styles from "./CreateForm.module.css";
+import styles from "./TaskForm.module.css";
 import { Capsule } from "../../types/capsule.ts";
 import { Category } from "../../types/category.ts";
 
 import { CapsuleContext } from "../../context/CapsuleContext.tsx";
 
 type Props = {
+  editingCapsule?: Capsule;
   onCancel: () => void;
   onSubmit: () => void;
 };
 
-function CreateForm({ onCancel, onSubmit }: Props): ReactNode {
-  const { createCapsule, editingCapsule, editCapsule } =
-    useContext(CapsuleContext);
+function TaskForm({ editingCapsule, onCancel, onSubmit }: Props): ReactNode {
+  const { createCapsule, editCapsule } = useContext(CapsuleContext);
 
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -47,7 +47,9 @@ function CreateForm({ onCancel, onSubmit }: Props): ReactNode {
 
   return (
     <form className={styles.content} onSubmit={submitHandler}>
-      <div className={styles.title}>New Appointment</div>
+      <div className={styles.title}>
+        {editingCapsule ? `Edit  Capsule ${editingCapsule.title}` : "New Appointment"}
+      </div>
 
       <TextInput
         name="title"
@@ -75,10 +77,10 @@ function CreateForm({ onCancel, onSubmit }: Props): ReactNode {
         <Button type={"button"} variant={"solid"} onClick={CancelHandler}>
           Cancel
         </Button>
-        <Button>Apply</Button>
+        <Button>{editingCapsule ? "Edit" : "Apply"}</Button>
       </div>
     </form>
   );
 }
 
-export default CreateForm;
+export default TaskForm;
