@@ -35,6 +35,7 @@ function TaskForm({ editingCapsule, onCancel, onSubmit }: Props): ReactNode {
     } else {
       createCapsule(formData);
     }
+    setFormData(generateCapsuleInitialState)
     onSubmit();
   };
 
