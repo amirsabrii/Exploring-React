@@ -5,12 +5,15 @@ import TeaxtArea from "../TextArea/TeaxtArea.tsx";
 import DatetimeLocl from "../DatetimeLocal/DatetimeLocal.tsx";
 import Select from "../Select/Select.tsx";
 import Button from "../Button/button.tsx";
+import {toast} from "react-toastify";
 
-import styles from "./CapsuleForm.module.css";
+import { CapsuleContext } from "../../context/CapsuleContext.tsx";
+
 import { Capsule } from "../../types/capsule.ts";
 import { Category } from "../../types/category.ts";
 
-import { CapsuleContext } from "../../context/CapsuleContext.tsx";
+
+import styles from "./CapsuleForm.module.css";
 
 type Props = {
   editingCapsule?: Capsule;
@@ -29,6 +32,20 @@ function CapsuleForm({ editingCapsule, onCancel, onSubmit }: Props): ReactNode {
 
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+
+      if(!formData.title){
+          toast.error('title is required'  , {containerId : 'modal'});
+          return;
+      }
+      if(!formData.description){
+          toast.error('description is required'  , {containerId : 'modal'});
+          return;
+      }
+      if(!formData.category){
+          toast.error('category is required'  , {containerId : 'modal'});
+          return;
+      }
+
 
     if (editingCapsule) {
       editCapsule(formData);
@@ -88,6 +105,12 @@ onChange={(e) => setFormData((old) => ({...old , date : e.target.value}))}
       </div>
     </form>
   );
+
+  // function formValidatin(){
+  //     if (!formData.title){
+  //         toast.success('noo' , {containerId : 'modal'})
+  //     }
+  // }
 }
 
 function generateCapsuleInitialState() : Capsule{
@@ -100,5 +123,4 @@ function generateCapsuleInitialState() : Capsule{
         };
 
 }
-
 export default CapsuleForm;

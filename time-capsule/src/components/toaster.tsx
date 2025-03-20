@@ -1,8 +1,12 @@
 import {ReactNode, useContext} from "react";
-import {Bounce, ToastContainer} from "react-toastify";
+
+import {Bounce, ToastContainer , ToastContainerProps} from "react-toastify";
+
 import {ThemeContext} from "../context/ThemeContext.tsx";
 
-function Toaster() : ReactNode{
+type Props =  ToastContainerProps
+
+function Toaster(props : Props) : ReactNode{
     const {theme} = useContext(ThemeContext)
     return (
         <ToastContainer
@@ -18,6 +22,7 @@ function Toaster() : ReactNode{
             theme={theme}
             transition={Bounce}
             aria-label={undefined}
+            {...props}
         />
     )
 }

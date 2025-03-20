@@ -5,6 +5,7 @@ import CapsuleForm from "../CapsuleForm/CapsuleForm.tsx";
 import { Capsule } from "../../types/capsule.ts";
 
 import styles from "../CreateModal/CreateModal.module.css";
+import Toaster from "../toaster.tsx";
 
 export type CapsuleModalRef = Pick<HTMLDialogElement, "showModal" | "close">;
 
@@ -32,6 +33,7 @@ const CapsuleModal = forwardRef<CapsuleModalRef, Props>(function CapsuleModal(
         onSubmit={closeModal}
         editingCapsule={editingCapsule}
       />
+      <Toaster containerId='modal'/>
     </dialog>
   );
 });

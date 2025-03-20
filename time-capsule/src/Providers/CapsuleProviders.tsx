@@ -15,19 +15,19 @@ function CapsuleProviders({ children }: Props): ReactNode {
 
   const createCapsule = (capsule: Capsule) => {
     setCapsule((old) => [...old, capsule]);
-    toast.success('Capsule created successfully ')
+    toast.success('Capsule created successfully')
   };
 
   const editCapsule = (capsule: Capsule): void => {
     setCapsule((old) =>
       old.map((x) => (x.id === capsule.id ? { ...capsule } : x)),
     );
-    toast.success('Capsule edited successfully ')
+    toast.success('Capsule edited successfully')
   };
 
   const removeCapsule = (id: string | number) => {
     setCapsule((old) => old.filter((x) => x.id !== id));
-    toast.success('Capsule removed successfully ')
+    toast.success('Capsule removed successfully')
   };
 
   return (
