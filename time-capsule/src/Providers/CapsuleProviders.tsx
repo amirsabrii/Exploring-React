@@ -41,19 +41,13 @@ function CapsuleProviders({ children }: Props): ReactNode {
 }
 
 function loadCapsuleInitialState(): Capsule[] {
-  type LocalStorgeCapsule = Omit<Capsule, "date"> & { date: string };
 
   const items = localStorage.getItem("capsules");
 
   if (!items) {
     return [];
   }
-  const parsedCpaule = JSON.parse(items) as LocalStorgeCapsule[];
-
-  return parsedCpaule.map((capsule) => ({
-    ...capsule,
-    date: new Date(capsule.date),
-  }));
+  return JSON.parse(items);
 }
 
 export default CapsuleProviders;

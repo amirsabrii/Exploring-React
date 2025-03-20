@@ -1,4 +1,4 @@
-import { FormEvent, ReactNode, useContext } from "react";
+import {FormEvent, ReactNode, useContext, useEffect, useState} from "react";
 
 import TextInput from "../TextInput/TextInput.tsx";
 import TeaxtArea from "../TextArea/TeaxtArea.tsx";
@@ -21,22 +21,19 @@ type Props = {
 function TaskForm({ editingCapsule, onCancel, onSubmit }: Props): ReactNode {
   const { createCapsule, editCapsule } = useContext(CapsuleContext);
 
+  const [formData , setFormData] = useState(generateCapsuleInitialState())
+
+    useEffect(() => {
+        setFormData(editingCapsule ? {...editingCapsule} : generateCapsuleInitialState)
+    } , [editingCapsule])
+
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-
-    const capsule: Capsule = {
-      id: editingCapsule?.id ?? crypto.randomUUID(),
-      title: formData.get("title") as string,
-      description: formData.get("description") as string,
-      date: new Date(formData.get("date") as string),
-      category: formData.get("category") as Category,
-    };
     if (editingCapsule) {
-      editCapsule(capsule);
+      editCapsule(formData);
     } else {
-      createCapsule(capsule);
+      createCapsule(formData);
     }
     onSubmit();
   };
@@ -54,18 +51,27 @@ function TaskForm({ editingCapsule, onCancel, onSubmit }: Props): ReactNode {
       <TextInput
         name="title"
         placeholder="your title..."
-        defaultValue={editingCapsule?.title}
+        value={formData.title}
+        onChange={(e) => setFormData((old) => ({...old , title : e.target.value}))}
+
       ></TextInput>
+
       <TeaxtArea
         name="description"
         placeholder="your description"
-        defaultValue={editingCapsule?.description}
+        value={formData.description}
+        onChange={(e) => setFormData((old) => ({...old , description : e.target.value}))}
       />
-      <DatetimeLocl name="date" />
+      <DatetimeLocl name="date"
+onChange={(e) => setFormData((old) => ({...old , date : e.target.value}))}
+
+      />
       <Select
+          key={editingCapsule?.id}
         name="category"
         variant={"outlined"}
-        defaultValue={editingCapsule?.category}
+        value={formData.category}
+          onChange={(e) => setFormData((old) => ({...old , category : e.target.value as Category}))}
         options={[
           { value: "work", label: "work" },
           { value: "friendly", label: "friendly" },
@@ -81,6 +87,17 @@ function TaskForm({ editingCapsule, onCancel, onSubmit }: Props): ReactNode {
       </div>
     </form>
   );
+}
+
+function generateCapsuleInitialState() : Capsule{
+    return{
+            id: crypto.randomUUID(),
+            title: '',
+            description: '',
+            date: '',
+            category: 'friendly',
+        };
+
 }
 
 export default TaskForm;
