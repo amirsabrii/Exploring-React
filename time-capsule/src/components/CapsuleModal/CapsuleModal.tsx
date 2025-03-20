@@ -1,18 +1,18 @@
 import {ReactNode, useRef, forwardRef, useImperativeHandle,} from "react";
 
-import TaskForm from "../TaskForm/TaskForm.tsx";
+import CapsuleForm from "../CapsuleForm/CapsuleForm.tsx";
 
 import { Capsule } from "../../types/capsule.ts";
 
 import styles from "../CreateModal/CreateModal.module.css";
 
-export type TaskModalRef = Pick<HTMLDialogElement, "showModal" | "close">;
+export type CapsuleModalRef = Pick<HTMLDialogElement, "showModal" | "close">;
 
 type Props = {
   editingCapsule?: Capsule;
 };
 
-const TaskModal = forwardRef<TaskModalRef, Props>(function TaskModal(
+const CapsuleModal = forwardRef<CapsuleModalRef, Props>(function CapsuleModal(
   { editingCapsule}, outerRef,): ReactNode {
   const innerRef = useRef<HTMLDialogElement>(null);
 
@@ -27,7 +27,7 @@ const TaskModal = forwardRef<TaskModalRef, Props>(function TaskModal(
 
   return (
     <dialog className={styles.dialog} ref={innerRef}>
-      <TaskForm
+      <CapsuleForm
         onCancel={closeModal}
         onSubmit={closeModal}
         editingCapsule={editingCapsule}
@@ -36,4 +36,4 @@ const TaskModal = forwardRef<TaskModalRef, Props>(function TaskModal(
   );
 });
 
-export default TaskModal;
+export default CapsuleModal;

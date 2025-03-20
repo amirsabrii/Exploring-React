@@ -1,14 +1,14 @@
 import { ReactNode, useRef } from "react";
 
 import Button from "../Button/button.tsx";
-import TaskModal, { TaskModalRef } from "../TaskModal/TaskModal.tsx";
+import CapsuleModal, { CapsuleModalRef } from "../CapsuleModal/CapsuleModal.tsx";
 
 import MdiLightPlus from "../../icons/MdiLightPlus.tsx";
 
 import styles from "./CreateModal.module.css";
 
 function CreateModal(): ReactNode {
-  const modalRef = useRef<TaskModalRef>(null);
+  const modalRef = useRef<CapsuleModalRef>(null);
 
   const dialogHandler = (): void => {
     modalRef.current?.showModal();
@@ -21,7 +21,7 @@ function CreateModal(): ReactNode {
           <MdiLightPlus />
         </Button>
       </div>
-      <TaskModal ref={modalRef} />
+      <CapsuleModal ref={modalRef} />
     </>
   );
 }

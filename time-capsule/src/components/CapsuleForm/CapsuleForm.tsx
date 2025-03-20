@@ -6,7 +6,7 @@ import DatetimeLocl from "../DatetimeLocal/DatetimeLocal.tsx";
 import Select from "../Select/Select.tsx";
 import Button from "../Button/button.tsx";
 
-import styles from "./TaskForm.module.css";
+import styles from "./CapsuleForm.module.css";
 import { Capsule } from "../../types/capsule.ts";
 import { Category } from "../../types/category.ts";
 
@@ -18,7 +18,7 @@ type Props = {
   onSubmit: () => void;
 };
 
-function TaskForm({ editingCapsule, onCancel, onSubmit }: Props): ReactNode {
+function CapsuleForm({ editingCapsule, onCancel, onSubmit }: Props): ReactNode {
   const { createCapsule, editCapsule } = useContext(CapsuleContext);
 
   const [formData , setFormData] = useState(generateCapsuleInitialState())
@@ -101,4 +101,4 @@ function generateCapsuleInitialState() : Capsule{
 
 }
 
-export default TaskForm;
+export default CapsuleForm;

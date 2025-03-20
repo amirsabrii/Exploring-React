@@ -9,14 +9,14 @@ import IconParkSolidPencil from "../../icons/IconParkSolidPencil.tsx";
 
 import styles from "./Result.module.css";
 import { Capsule } from "../../types/capsule.ts";
-import TaskModal, { TaskModalRef } from "../TaskModal/TaskModal.tsx";
+import CapsuleModal, { CapsuleModalRef } from "../CapsuleModal/CapsuleModal.tsx";
 
 function Result(): ReactNode {
   const { capsule, removeCapsule } = useContext(CapsuleContext);
 
   const [editingCapsule, setEditingCapsule] = useState<Capsule | null>(null);
 
-  const modalRef = useRef<TaskModalRef>(null);
+  const modalRef = useRef<CapsuleModalRef>(null);
 
   const EditDialogHandler = (capsule: Capsule): void => {
     setEditingCapsule(capsule);
@@ -49,7 +49,7 @@ function Result(): ReactNode {
           </li>
         ))}
       </ul>
-      <TaskModal ref={modalRef} editingCapsule={editingCapsule ?? undefined} />
+      <CapsuleModal ref={modalRef} editingCapsule={editingCapsule ?? undefined} />
     </>
   );
 }
