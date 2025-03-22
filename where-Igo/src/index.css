@@ -1,0 +1,46 @@
+:root {
+    --colo-black: hsl(0, 0%, 15%);
+    --color--withe: hsl(0, 0%, 97%);
+
+    --color--surface: var(--color--withe);
+    --color--text: var(--colo-black);
+
+    &[data-theme="dark"] {
+        --color--surface: hsl(0, 0%, 15%);
+        --color--text: hsl(0, 0%, 97%);
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Vazirmatn", system-ui;
+}
+
+input,
+label,
+select,
+textarea,
+button,
+fieldset,
+legend,
+datalist,
+output,
+option,
+optgroup {
+    font: inherit;
+}
+
+body {
+    background-color: var(--color--surface);
+    color: var(--color--text);
+    inline-size: min(40rem, 100% - 2rem);
+    margin-inline: auto;
+}
