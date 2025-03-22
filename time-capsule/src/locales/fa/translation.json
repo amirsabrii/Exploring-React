@@ -32,27 +32,6 @@
       "cancel": "لغو"
     }
   },
-
-  "counter": {
-    "label": "شمارش: {{count}}"
-  },
-
-  "validation": {
-    "required": "این فیلد الزامی است",
-    "date": {
-      "required": "تاریخ الزامی است",
-      "invalid": "فرمت تاریخ نامعتبر است"
-    },
-    "title": {
-      "required": "عنوان الزامی است",
-      "length": "عنوان باید بین {{minTitleLength}} و {{maxTitleLength}} کاراکتر باشد"
-    },
-    "description": {
-      "required": "توضیحات الزامی است",
-      "length": "توضیحات باید کمتر از {{maxDescriptionLength}} کاراکتر باشد"
-    }
-  },
-
   "toaster" : {
     "create" : "کپسول با موفقیت اضافه شد",
     "edit" : "کپسول با موفقیت ویرایش شد",
