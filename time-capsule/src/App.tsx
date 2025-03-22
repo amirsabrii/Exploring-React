@@ -7,6 +7,8 @@ import Toaster from "./components/toaster.tsx";
 import CapsuleProviders from "./Providers/CapsuleProviders.tsx";
 import ThemeProviders from "./Providers/ThemeProviders.tsx";
 
+import "./i18n.ts"
+
 import "./App.css";
 
 function App() {

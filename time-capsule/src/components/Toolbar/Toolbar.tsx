@@ -1,18 +1,23 @@
 import { ReactNode, useContext } from "react";
 
-import styles from "./Toolbar.module.css";
-import TextInput from "../TextInput/TextInput.tsx";
-import MingcuteSearch2Line from "../../icons/MingcuteSearch2Line.tsx";
+import { ThemeContext } from "../../context/ThemeContext.tsx";
 
+
+import TextInput from "../TextInput/TextInput.tsx";
 import Select from "../Select/Select.tsx";
 import Button from "../Button/button.tsx";
 
-import { ThemeContext } from "../../context/ThemeContext.tsx";
+import MingcuteSearch2Line from "../../icons/MingcuteSearch2Line.tsx";
 import MingcuteSunFill from "../../icons/MingcuteSunFill.tsx";
 import SolarMoonBold from "../../icons/SolarMoonBold.tsx";
 
+
+import styles from "./Toolbar.module.css";
+import LanguageButton from "../../LanguageButton/LanguageButton.tsx";
+
 function Toolbar(): ReactNode {
   const { theme, toggleTheme } = useContext(ThemeContext);
+
 
   return (
     <div className={styles.toolbar}>
@@ -30,12 +35,13 @@ function Toolbar(): ReactNode {
           { value: "family", label: "family" },
         ]}
       ></Select>
+      <LanguageButton/>
       <Button
         size="medium"
         variant="solid"
         shape="square"
         onClick={() => toggleTheme()}
-        suffixIcon={theme === "dark" ? <SolarMoonBold /> : <MingcuteSunFill />}
+        suffixIcon={theme === "dark" ? <MingcuteSunFill /> :<SolarMoonBold /> }
       ></Button>
     </div>
   );
