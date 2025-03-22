@@ -1,3 +1,65 @@
 {
-  "title": "Time Capsules"
+  "app": {
+    "title": "Time Capsule"
+  },
+  "languages": {
+    "english": "English",
+    "farsi": "فارسی"
+  },
+  "capsule": {
+    "create": {
+      "title": "Create a New Capsule",
+      "edit": "Edit {{title}}"
+    },
+    "form": {
+      "title": {
+        "placeholder": "Input your title..."
+      },
+      "description": {
+        "placeholder": "Input your description..."
+      },
+      "Category": {
+        "all": "all",
+        "work": "work",
+        "friendly": "friendly",
+        "family": "family"
+      }
+    },
+    "actions": {
+      "create": "Create",
+      "edit": "Edit",
+      "cancel": "Cancel"
+    }
+  },
+  "counter": {
+    "label": "Count: {{count}}"
+  },
+
+  "validation": {
+    "required": "This field is required",
+    "date": {
+      "required": "Date is required",
+      "invalid": "Invalid date format"
+    },
+    "title": {
+      "required": "Title is required",
+      "length": "Title must be between {{minTitleLength}} and {{maxTitleLength}} characters"
+    },
+    "description": {
+      "required": "Description is required",
+      "length": "Description must be less than {{maxDescriptionLength}} characters"
+    }
+  },
+
+  "toaster" : {
+    "create" : "Capsule created successfully",
+    "edit" :  "Capsule edited successfully",
+    "remove" : "Capsule removed successfully"
+  },
+
+  "toolbar": {
+    "search": {
+      "placeholder": "Search Capsules..."
+    }
+  }
 }

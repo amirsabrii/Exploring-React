@@ -1,3 +1,67 @@
 {
-  "title": "کپسول زمان"
+  "app": {
+    "title": "کپسول زمان"
+  },
+  "languages": {
+    "english": "English",
+    "farsi": "فارسی"
+  },
+
+  "capsule": {
+    "create": {
+      "title": "ایجاد کپسول جدید",
+      "edit": "ویرایش {{title}}"
+    },
+    "form": {
+      "title": {
+        "placeholder": "عنوان خود را وارد کنید..."
+      },
+      "description": {
+        "placeholder": "توضیحات خود را وارد کنید..."
+      },
+      "Category": {
+        "all": "همه",
+        "work": "کاری",
+        "friendly": "دوستانه",
+        "family": "خانوادگی"
+      }
+    },
+    "actions": {
+      "create": "ایجاد",
+      "edit": "ویرایش",
+      "cancel": "لغو"
+    }
+  },
+
+  "counter": {
+    "label": "شمارش: {{count}}"
+  },
+
+  "validation": {
+    "required": "این فیلد الزامی است",
+    "date": {
+      "required": "تاریخ الزامی است",
+      "invalid": "فرمت تاریخ نامعتبر است"
+    },
+    "title": {
+      "required": "عنوان الزامی است",
+      "length": "عنوان باید بین {{minTitleLength}} و {{maxTitleLength}} کاراکتر باشد"
+    },
+    "description": {
+      "required": "توضیحات الزامی است",
+      "length": "توضیحات باید کمتر از {{maxDescriptionLength}} کاراکتر باشد"
+    }
+  },
+
+  "toaster" : {
+    "create" : "کپسول با موفقیت اضافه شد",
+    "edit" : "کپسول با موفقیت ویرایش شد",
+    "remove" : "کپسول با موفقیت حذف شد"
+  },
+
+  "toolbar": {
+    "search": {
+      "placeholder": "جستجو کپسول ها..."
+    }
+  }
 }

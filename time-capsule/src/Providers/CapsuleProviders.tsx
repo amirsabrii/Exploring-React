@@ -3,11 +3,14 @@ import { PropsWithChildren, ReactNode, useEffect, useState } from "react";
 import { Capsule } from "../types/capsule.ts";
 import { CapsuleContext } from "../context/CapsuleContext.tsx";
 import {toast} from "react-toastify";
+import {useTranslation} from "react-i18next";
 
 type Props = PropsWithChildren;
 
 function CapsuleProviders({ children }: Props): ReactNode {
   const [capsule, setCapsule] = useState<Capsule[]>(loadCapsuleInitialState);
+
+  const {t} = useTranslation()
 
   useEffect(() => {
     localStorage.setItem("capsules", JSON.stringify(capsule));
@@ -15,19 +18,19 @@ function CapsuleProviders({ children }: Props): ReactNode {
 
   const createCapsule = (capsule: Capsule) => {
     setCapsule((old) => [...old, capsule]);
-    toast.success('Capsule created successfully')
+    toast.success(t("toaster.create"))
   };
 
   const editCapsule = (capsule: Capsule): void => {
     setCapsule((old) =>
       old.map((x) => (x.id === capsule.id ? { ...capsule } : x)),
     );
-    toast.success('Capsule edited successfully')
+    toast.success(t("toaster.edit"))
   };
 
   const removeCapsule = (id: string | number) => {
     setCapsule((old) => old.filter((x) => x.id !== id));
-    toast.success('Capsule removed successfully')
+    toast.success(t("toaster.remove"))
   };
 
   return (
