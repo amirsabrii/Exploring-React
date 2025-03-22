@@ -2,12 +2,15 @@ import { PropsWithChildren, ReactNode, useEffect, useState } from "react";
 
 import { Capsule } from "../types/capsule.ts";
 import { CapsuleContext } from "../context/CapsuleContext.tsx";
+import {toast} from "react-toastify";
+import {useTranslation} from "react-i18next";
 
 type Props = PropsWithChildren;
 
 function CapsuleProviders({ children }: Props): ReactNode {
   const [capsule, setCapsule] = useState<Capsule[]>(loadCapsuleInitialState);
-  const [editingCapsule, setEditingCapsule] = useState<Capsule | null>(null);
+
+  const {t} = useTranslation()
 
   useEffect(() => {
     localStorage.setItem("capsules", JSON.stringify(capsule));
@@ -15,16 +18,19 @@ function CapsuleProviders({ children }: Props): ReactNode {
 
   const createCapsule = (capsule: Capsule) => {
     setCapsule((old) => [...old, capsule]);
+    toast.success(t("toaster.create"))
   };
 
   const editCapsule = (capsule: Capsule): void => {
     setCapsule((old) =>
       old.map((x) => (x.id === capsule.id ? { ...capsule } : x)),
     );
+    toast.success(t("toaster.edit"))
   };
 
   const removeCapsule = (id: string | number) => {
     setCapsule((old) => old.filter((x) => x.id !== id));
+    toast.success(t("toaster.remove"))
   };
 
   return (
@@ -33,8 +39,6 @@ function CapsuleProviders({ children }: Props): ReactNode {
         capsule,
         createCapsule,
         removeCapsule,
-        editingCapsule,
-        setEditingCapsule,
         editCapsule,
       }}
     >
@@ -44,19 +48,13 @@ function CapsuleProviders({ children }: Props): ReactNode {
 }
 
 function loadCapsuleInitialState(): Capsule[] {
-  type LocalStorgeCapsule = Omit<Capsule, "date"> & { date: string };
 
   const items = localStorage.getItem("capsules");
 
   if (!items) {
     return [];
   }
-  const parsedCpaule = JSON.parse(items) as LocalStorgeCapsule[];
-
-  return parsedCpaule.map((capsule) => ({
-    ...capsule,
-    date: new Date(capsule.date),
-  }));
+  return JSON.parse(items);
 }
 
 export default CapsuleProviders;

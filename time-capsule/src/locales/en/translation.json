@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "Time Capsule"
+  },
+  "languages": {
+    "english": "English",
+    "farsi": "فارسی"
+  },
+  "capsule": {
+    "create": {
+      "title": "Create a New Capsule",
+      "edit": "Edit {{title}}"
+    },
+    "form": {
+      "title": {
+        "placeholder": "Input your title..."
+      },
+      "description": {
+        "placeholder": "Input your description..."
+      },
+      "Category": {
+        "all": "all",
+        "work": "work",
+        "friendly": "friendly",
+        "family": "family"
+      }
+    },
+    "actions": {
+      "create": "Create",
+      "edit": "Edit",
+      "cancel": "Cancel"
+    }
+  },
+
+  "toaster" : {
+    "create" : "Capsule created successfully",
+    "edit" :  "Capsule edited successfully",
+    "remove" : "Capsule removed successfully"
+  },
+
+  "toolbar": {
+    "search": {
+      "placeholder": "Search Capsules..."
+    }
+  }
+}

@@ -81,3 +81,6 @@
     color: var(--color--gold-yellow);
   }
 }
+.suffixIcon{
+  font-size: 1.25rem;
+}
