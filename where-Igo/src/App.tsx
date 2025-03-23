@@ -1,12 +1,21 @@
 import './App.css'
+import {Route, Routes} from "react-router";
+import Home from "./pages/Home.tsx";
+import About from "./pages/About.tsx";
+import RootLayuots from "./layuots/Layuots.tsx";
 
 function App() {
 
 
   return (
-    <>
-     <h1>سلام امیر...</h1>
-    </>
+    <Routes>
+        <Route element={<RootLayuots/>}>
+
+        <Route index element={<Home/>}/>
+        <Route path={'about'} element={<About/>} />
+
+        </Route>
+    </Routes>
   )
 }
 
