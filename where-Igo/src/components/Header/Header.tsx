@@ -1,7 +1,11 @@
 import { ReactNode } from "react";
 
+import {Link, NavLink} from "react-router";
+
+import kojaberam from '../../icons/kojaberam.jpeg'
+
 import styles from "./Header.module.css";
-import {Link} from "react-router";
+import clsx from "clsx";
 
 type NavItem  = {
     title : string,
@@ -18,19 +22,19 @@ const navItem : NavItem[] =  [
 function Header(): ReactNode {
   return (
     <div className={styles["header"]}>
-      <div className={styles.logo}>Where i go</div>
+      <Link to={'/'}  className={styles.logo}><img src={kojaberam} /></Link>
 
         <nav>
             <ul>
                 {navItem.map(item => (
                     <li key={item.title}>
-                        <Link to={item.href}>{item.title}</Link>
+                        <NavLink to={item.href} className={({isActive}) => clsx(isActive && styles.active) }  > {item.title} </NavLink>
                     </li>
                 ))}
             </ul>
         </nav>
     </div>
-  );
+  )
 }
 
 export default Header;
