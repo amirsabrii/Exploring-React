@@ -1,0 +1,48 @@
+.filter {
+  background-color: var(--color-surface-elevated);
+
+
+  box-shadow: var(--shadow);
+  text-align: center;
+
+  border-radius: 0.5rem;
+
+  .title {
+    background-color: var(--color-primary);
+    color: var(--color-Opposite-primary);
+
+    padding: 0.5rem;
+
+    font-size: var(--fz-500);
+    font-weight: 600;
+  }
+
+  .filter-tags {
+    > ul {
+  max-block-size: 35rem;
+  overflow: auto;
+
+      margin-block-start: 1rem;
+
+      li {
+        color: var(--color-text);
+
+        padding: 0.5rem;
+
+        transition: 0.2s;
+
+        &:hover {background-color: var(--color-primary-fade);
+          color: var(--color-Opposite-primary);
+
+          cursor: pointer;
+        }
+
+        &.select{
+          background-color: var(--color-primary-fade);
+          color: var(--color-Opposite-primary);
+
+        }
+      }
+    }
+  }
+}

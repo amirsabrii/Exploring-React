@@ -2,10 +2,6 @@
   display: grid;
   gap: 1.25rem;
 
-
-
-  margin-block: 2rem;
-
   > li {
     display: grid;
     grid-template-columns: 20rem 1fr;

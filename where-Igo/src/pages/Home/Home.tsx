@@ -1,6 +1,10 @@
 import { ReactNode, useEffect, useState } from "react";
+
 import AttractionsList from "../../components/AttractionsList/AttractionsList.tsx";
 
+import Filters from "../../components/Filters/Filters.tsx";
+
+import styles from "./Home.module.css"
 function Home(): ReactNode {
   const [attractions, setAttractions] = useState([]);
 
@@ -14,7 +18,8 @@ function Home(): ReactNode {
     fetchAttractions().then();
   }, []);
 
-  return <div>
+  return <div className={styles.home}>
+    <Filters/>
     <AttractionsList attractios={attractions}/>
   </div>;
 }
