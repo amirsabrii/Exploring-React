@@ -3,10 +3,14 @@
     --color-withe: hsl(0, 0%, 97%);
 
     --color-surface: var(--color--withe);
+    --color-surface-elevated: hsl(200 ,0% ,95%);
+
     --color-text: var(--colo-black);
 
     --color-primary : hsl(210, 94%, 43%);
     --color-primary-hover : hsl(240, 85%, 30%);
+
+    --color-Opposite-primary : hsl(230, 0%, 100%);
 
     &[data-theme="dark"] {
         --color-surface: hsl(0, 0%, 15%);
