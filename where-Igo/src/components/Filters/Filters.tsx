@@ -1,39 +1,17 @@
-import { ReactNode } from "react";
+import {ReactNode, useContext} from "react";
 
+import {FiltersContext} from "../../context/FilterContext.ts";
 
 import { filterTags } from "../../data/TagData.ts";
-import {FiltersType} from "../../type/filter.type.ts";
 
-import styles from "./Filters.module.css";
-import {AttractionTag} from "../../type/attraction-tag.ts";
 import MingcuteCloseLine from "../../icons/MingcuteCloseLine.tsx";
 
-type Props = {
-  filter : FiltersType,
-  setFilter :  React.Dispatch<React.SetStateAction<FiltersType>>
-}
+import styles from "./Filters.module.css";
 
-function Filters({filter , setFilter} : Props): ReactNode {
+function Filters(): ReactNode {
 
+    const {filter , toggleTags} = useContext(FiltersContext)
 
-  const toggleTags = (tag : AttractionTag): void => {
-    setFilter((old) => {
-      const index = old.tags.findIndex((x) => x.id === tag.id);
-
-      if (index === -1) {
-        return {...old, tags : [...old.tags , tag]};
-      }
-
-      const clone = [...old.tags]
-      clone.splice(index , 1)
-      return {...old , tags : clone}
-    });
-  };
-
-  // const remove = (ids : number) => {
-  //   setFilter((old)  =>  old.tags.filter((x) => { x.id !== ids})
-  //   )
-  // }
   return (
     <div className={styles.filter}>
       <div className={styles.title}>برچسب ها</div>

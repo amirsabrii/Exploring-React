@@ -1,0 +1,43 @@
+import {PropsWithChildren, ReactNode, useContext, useEffect, useMemo, useState} from "react";
+import {AtractiosContext} from "../context/AttractionsContext.ts";
+import {FiltersContext} from "../context/FilterContext.ts";
+import {Attraction} from "../type/attraction.ts";
+
+type Props = PropsWithChildren
+
+function AttractionsProvider({children} : Props) : ReactNode{
+
+    const { filter } = useContext(FiltersContext)
+
+    const [allAttractions, allSetAttractions] = useState<Attraction[]>([]);
+
+    const filterActraction = useMemo(() => {
+        return allAttractions.filter((actration) => {
+            if (filter.tags.length === 0) {
+                return true;
+            } else {
+                return actration.tags.some((tag) =>
+                    filter.tags.find((x) => x.id === tag.id),
+                );
+            }
+        });
+    }, [allAttractions, filter]);
+
+    useEffect(() => {
+        const fetchAttractions = async (): Promise<void> => {
+            const responce = await fetch(
+                `${import.meta.env.VITE_API_BASE_URL}/whereabouts/attraction`,
+            );
+            const data = await responce.json();
+            allSetAttractions(data);
+        };
+        fetchAttractions().then();
+    }, []);
+    return (
+        <AtractiosContext value={{filterActraction}} >
+            {children}
+        </AtractiosContext>
+    )
+}
+
+export default AttractionsProvider;
