@@ -69,5 +69,34 @@
             -webkit-line-clamp: 3;
 
         }
+
+        .tags{
+
+            >ul{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+
+                margin-block-start: 1rem;
+
+                li{
+                    background-color: var(--color-primary);
+                    color: var(--color-surface);
+
+                    font-size: var(--fz-300);
+
+                    padding: 0.5rem;
+
+                    border-radius: 999rem;
+
+                    transition: 0.2s;
+
+                    &:hover{
+                        background-color: var(--color-primary-hover);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
     }
 }

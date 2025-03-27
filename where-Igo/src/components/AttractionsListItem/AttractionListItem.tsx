@@ -37,6 +37,13 @@ function AttractionListItem({item}:Props):ReactNode{
                 </div>
 
                 <p className={styles.description} dangerouslySetInnerHTML={{__html: item.description}}></p>
+                <div className={styles.tags}>
+                    <ul>
+                        {item.tags.map((tag) => (
+                            <li key={tag.id}>{tag.title}</li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </li>
     )
