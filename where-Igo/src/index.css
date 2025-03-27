@@ -1,9 +1,9 @@
 :root {
     --colo-black: hsl(0, 0%, 15%);
-    --color-withe: hsl(0, 0%, 97%);
+    --color-withe: hsl(200 , 0% , 94% );
 
-    --color-surface: var(--color--withe);
-    --color-surface-elevated: hsl(200 ,0% ,95%);
+    --color-surface: var(--color-withe);
+    --color-surface-elevated : hsl(0 , 0% , 97% );
 
     --color-text: var(--colo-black);
 
@@ -13,7 +13,7 @@
 
     --color-Opposite-primary : hsl(230, 0%, 100%);
 
-    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 5px 2px -1px rgb(0 0 0 / 0.1);
 
     &[data-theme="dark"] {
         --color-surface: hsl(0, 0%, 15%);

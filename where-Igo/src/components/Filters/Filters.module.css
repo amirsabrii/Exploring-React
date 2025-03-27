@@ -1,11 +1,22 @@
 .filter {
   background-color: var(--color-surface-elevated);
 
+  max-block-size: 35rem;
+  overflow: auto;
+
+  &::-webkit-scrollbar{
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background: linear-gradient(#f0f0f0  , #49a3fd   ,#f0f0f0  );
+    border-radius: 999rem;
+  }
 
   box-shadow: var(--shadow);
   text-align: center;
 
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 
   .title {
     background-color: var(--color-primary);
@@ -18,14 +29,14 @@
   }
 
   .filter-tags {
-    > ul {
-  max-block-size: 35rem;
-  overflow: auto;
-
+    > .options {
       margin-block-start: 1rem;
 
-      li {
+      label {
+        display: flex;
         color: var(--color-text);
+
+        gap: 0.5rem;
 
         padding: 0.5rem;
 
@@ -37,10 +48,16 @@
           cursor: pointer;
         }
 
-        &.select{
-          background-color: var(--color-primary-fade);
-          color: var(--color-Opposite-primary);
+        input {
+          block-size: 1em;
+          inline-size: 1em;
 
+          font-size: 1.25em;
+        }
+
+        &:hover,
+        &:has(:focus-visible) {
+          background-color: var(--color-primary-fade);
         }
       }
     }

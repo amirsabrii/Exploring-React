@@ -4,7 +4,7 @@ import OpenmojiStar from "../../icons/OpenmojiStar.tsx";
 import Button from "../Button/Button.tsx";
 import {Attraction} from "../../type/attraction.ts";
 
-import styles from "../AttractionsList/AttractionsList.module.css";
+import styles from "./AttractionListItem.module.css";
 
 type Props = {
     item : Attraction;
