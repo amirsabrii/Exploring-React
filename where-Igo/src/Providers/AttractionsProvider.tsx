@@ -12,12 +12,12 @@ function AttractionsProvider({children} : Props) : ReactNode{
     const [allAttractions, allSetAttractions] = useState<Attraction[]>([]);
 
     const filterActraction = useMemo(() => {
-        return allAttractions.filter((actration) => {
+        return allAttractions.filter((acttration) => {
             if (filter.tags.length === 0) {
                 return true;
             } else {
-                return actration.tags.some((tag) =>
-                    filter.tags.find((x) => x.id === tag.id),
+                return filter.tags.every((tag) =>
+                    acttration.tags.find((x) => x.id === tag.id),
                 );
             }
         });
