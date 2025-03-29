@@ -5,6 +5,7 @@ import {FiltersContext} from "../context/FilterContext.ts";
 
 import {Attraction} from "../type/attraction.ts";
 
+
 type Props = PropsWithChildren
 
 function AttractionsProvider({children} : Props) : ReactNode{
@@ -27,8 +28,13 @@ function AttractionsProvider({children} : Props) : ReactNode{
 
     useEffect(() => {
         const fetchAttractions = async (): Promise<void> => {
+
+              const params = new URLSearchParams()
+            filter.tags.forEach((tag) => params.append('tag' , tag.id.toString()))
+
+
             const responce = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}/attraction`,
+                `${import.meta.env.VITE_API_BASE_URL}/attraction?${params.toString()}`,
             );
             const data = await responce.json();
             allSetAttractions(data);
