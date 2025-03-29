@@ -12,7 +12,7 @@ type Props = {
 function AttractionSidebar({ attraction }: Props): ReactNode {
   return (
     <aside className={styles["attraction-sidebar"]}>
-      <div className={styles.title}>اطلاعات جاذبه گردشگری</div>
+      <div className={styles.title}>اطلاعات {attraction.title}</div>
       <div className={styles.addres}>
         <MingcuteLocation3Line />
         {attraction.address}
