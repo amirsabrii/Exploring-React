@@ -32,7 +32,11 @@ function AttractionListItem({item}:Props):ReactNode{
                     </div>
 
                     <div className={styles["more-info-button"]}>
-                        <Button>اطلاعات بیشتر</Button>
+                        <Button>
+                            <Link to={`attraction/${item.id}`}>
+                                اطلاعات بیشتر
+                            </Link>
+                        </Button>
                     </div>
                 </div>
 

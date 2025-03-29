@@ -1,6 +1,8 @@
 import {PropsWithChildren, ReactNode, useContext, useEffect, useMemo, useState} from "react";
+
 import {AtractiosContext} from "../context/AttractionsContext.ts";
 import {FiltersContext} from "../context/FilterContext.ts";
+
 import {Attraction} from "../type/attraction.ts";
 
 type Props = PropsWithChildren
@@ -26,13 +28,13 @@ function AttractionsProvider({children} : Props) : ReactNode{
     useEffect(() => {
         const fetchAttractions = async (): Promise<void> => {
             const responce = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}/whereabouts/attraction`,
+                `${import.meta.env.VITE_API_BASE_URL}/attraction`,
             );
             const data = await responce.json();
             allSetAttractions(data);
         };
         fetchAttractions().then();
-    }, []);
+    }, [filter]);
     return (
         <AtractiosContext value={{filterActraction}} >
             {children}
