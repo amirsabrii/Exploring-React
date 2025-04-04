@@ -6,11 +6,13 @@ import RootLayuots from "./layuots/Layuots.tsx";
 import AttractionDetails from "./pages/AttractionDetails/AttractionDetails.tsx";
 
 import './App.css'
+import QueryProvider from "./Providers/QueryProvider.tsx";
 
 function App() {
 
 
   return (
+      <QueryProvider>
     <Routes>
         <Route element={<RootLayuots/>}>
 
@@ -20,6 +22,7 @@ function App() {
 
         </Route>
     </Routes>
+      </QueryProvider>
   )
 }
 
