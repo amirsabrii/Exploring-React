@@ -15,7 +15,7 @@ function AttractionDetails(): ReactNode {
   const { data : attraction , isFetching  } = useQuery({
     queryKey: ["attraction" , id],
     queryFn: () => fetchAttraction(id),
-
+      staleTime : 70 * 1000
   });
   if (isFetching || !attraction){
       return <>درحال بارگذاری...</>

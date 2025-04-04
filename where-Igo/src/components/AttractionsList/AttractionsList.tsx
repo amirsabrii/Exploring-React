@@ -17,6 +17,7 @@ function AttractionsList(): ReactNode {
   const { data , isLoading , isError } = useQuery({
     queryKey: ["attractions", filter],
     queryFn: () => fetchAttractions(filter),
+    staleTime : 70 * 1000
   });
 
   if (isLoading){
