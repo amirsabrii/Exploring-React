@@ -13,11 +13,23 @@ import styles from "./AttractionsList.module.css";
 function AttractionsList(): ReactNode {
   const { filter } = useContext(FiltersContext);
 
-  const { data } = useQuery({
+  const { data , isLoading , isError } = useQuery({
     queryKey: ["attractions", filter],
     queryFn: () => fetchAttractions(filter),
-    initialData: [],
   });
+
+  if (isLoading){
+    return <h1>Loading ....</h1>
+  }
+
+  if (isError){
+    return <h1>Error</h1>
+  }
+
+  if (!data){
+    return <h1>there is not data</h1>
+  }
+
 
   return (
     <ul className={styles["acttraction-list"]}>
