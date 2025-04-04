@@ -14,7 +14,7 @@ function AttractionsList(): ReactNode {
   const { filter } = useContext(FiltersContext);
 
   const { data } = useQuery({
-    queryKey: ["attraction", filter],
+    queryKey: ["attractions", filter],
     queryFn: () => fetchAttractions(filter),
     initialData: [],
   });
