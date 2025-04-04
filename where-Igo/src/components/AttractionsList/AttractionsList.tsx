@@ -9,6 +9,7 @@ import { FiltersContext } from "../../context/FilterContext.ts";
 import { useQuery } from "@tanstack/react-query";
 
 import styles from "./AttractionsList.module.css";
+import Loading from "../Loading/Loading.tsx";
 
 function AttractionsList(): ReactNode {
   const { filter } = useContext(FiltersContext);
@@ -19,7 +20,7 @@ function AttractionsList(): ReactNode {
   });
 
   if (isLoading){
-    return <h1>Loading ....</h1>
+    return <Loading/>
   }
 
   if (isError){
