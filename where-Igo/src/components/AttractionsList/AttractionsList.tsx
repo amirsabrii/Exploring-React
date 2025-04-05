@@ -14,24 +14,19 @@ import Loading from "../Loading/Loading.tsx";
 function AttractionsList(): ReactNode {
   const { filter } = useContext(FiltersContext);
 
-  const { data , isLoading , isError } = useQuery({
+  const { data , isPending , isError } = useQuery({
     queryKey: ["attractions", filter],
     queryFn: () => fetchAttractions(filter),
     staleTime : 70 * 1000
   });
 
-  if (isLoading){
+  if (isPending){
     return <Loading/>
   }
 
   if (isError){
     return <h1>Error</h1>
   }
-
-  if (!data){
-    return <h1>there is not data</h1>
-  }
-
 
   return (
     <ul className={styles["acttraction-list"]}>
