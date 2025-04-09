@@ -19,6 +19,7 @@ function Button({
   variant = "solid",
   shape = "rectangel",
   size = "medium",
+ ...otherProps
 }: Props): ReactNode {
   return (
     <button
@@ -27,7 +28,7 @@ function Button({
         styles[variant],
         styles[shape],
         styles[size],
-      )}
+      )} {...otherProps}
     >
       {children}
     </button>

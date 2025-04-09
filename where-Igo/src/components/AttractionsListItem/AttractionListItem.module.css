@@ -30,6 +30,8 @@
         box-shadow: var(--shadow);
 
         .title {
+            color: var(--color-text);
+
             font-size: var(--fz-600);
             font-weight: 700;
 
@@ -81,7 +83,7 @@
 
                 li{
                     background-color: var(--color-primary);
-                    color: var(--color-surface);
+                    color: var(--color-withe);
 
                     font-size: var(--fz-300);
 
