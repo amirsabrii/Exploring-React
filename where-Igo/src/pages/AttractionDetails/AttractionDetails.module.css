@@ -19,4 +19,32 @@
     .attraction-content{
         grid-area: body ;
     }
+
+    }
+    @media screen and (max-width: 750px)  {
+        .attraction-details{
+            display: grid;
+        grid-template-areas: 'carousel carousel' 'sidebar sidebar' 'body body';
+
+            .attraction-sidebar{
+                grid-area: sidebar ;
+            }
+
+            .carousel-thumbnail{
+                grid-area: carousel ;
+            }
+
+            .attraction-content{
+                grid-area: body ;
+            }
+        }
+}
+@media  screen and (max-width: 375px ) {
+    .attraction-sidebar{
+       margin-inline-end: 1rem;
+    }
+
+    .carousel-thumbnail{
+        margin-inline-end: 1rem;
+    }
 }
