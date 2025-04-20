@@ -112,3 +112,10 @@
 
     }
 }
+    @media screen and (max-width: 800px) {
+
+        .acttraction-list-item{
+        grid-template-columns: 100%;
+            grid-template-rows: repeat(2, 1fr) ;
+        }
+    }
