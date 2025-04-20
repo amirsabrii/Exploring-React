@@ -1,8 +1,6 @@
 import { ReactNode, useContext, useState } from "react";
 
-import { Link, NavLink } from "react-router";
-
-import kojaberam from "../../icons/kojaberam.jpeg";
+import { NavLink } from "react-router";
 
 import styles from "./Header.module.css";
 import clsx from "clsx";
@@ -59,9 +57,6 @@ function Header(): ReactNode {
           ))}
         </ul>
       </nav>
-      <Link to={"/"} className={styles.logo}>
-        <img src={kojaberam} />
-      </Link>
     </div>
   );
 }
