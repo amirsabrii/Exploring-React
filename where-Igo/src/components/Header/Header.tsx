@@ -9,6 +9,7 @@ import { ThemeContext } from "../../context/ThemeContext.ts";
 import MingcuteSunFill from "../../icons/MingcuteSunFill.tsx";
 import SolarMoonBold from "../../icons/SolarMoonBold.tsx";
 import MingcuteMenuFill from "../../icons/MingcuteMenuFill.tsx";
+import MingcuteUser2Fill from "../../icons/MingcuteUser2Fill.tsx";
 
 type NavItem = {
   title: string;
@@ -31,11 +32,10 @@ function Header(): ReactNode {
   };
   return (
     <div className={styles["header"]}>
-      <div className={styles.hamburger} onClick={toggleMenu}>
-        <MingcuteMenuFill />
-      </div>
-
       <nav>
+        <div className={styles.hamburger} onClick={toggleMenu}>
+          <MingcuteMenuFill />
+        </div>
         <ul className={clsx(styles.menu, isopen && styles.active)}>
           <Button
             className={styles["theme-button"]}
@@ -56,6 +56,7 @@ function Header(): ReactNode {
             </li>
           ))}
         </ul>
+        <MingcuteUser2Fill className={styles.suffix} />
       </nav>
     </div>
   );

@@ -1,5 +1,6 @@
 .header {
   margin-block: 1.5rem;
+
   .logo > img {
     width: 5rem;
   }
@@ -10,6 +11,9 @@
   }
 
   nav {
+    display: flex;
+    justify-content: space-between;
+
     .menu {
       display: flex;
       gap: 2rem;
@@ -41,13 +45,20 @@
         }
       }
     }
+
+    .suffix{
+      font-size: 2rem;
+    }
   }
 
   @media screen and (max-width: 520px) {
+
     .hamburger {
       display: block;
     }
+
     nav {
+
       .menu {
         background-color: var(--color-surface-fade);
         color: var(--color-text);
