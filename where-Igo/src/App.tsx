@@ -7,9 +7,11 @@ import AttractionDetails from "./pages/AttractionDetails/AttractionDetails.tsx";
 
 import "./App.css";
 import QueryProvider from "./Providers/QueryProvider.tsx";
+import ThemeProvider from "./Providers/ThemeProvider.tsx";
 
 function App() {
   return (
+        <ThemeProvider>
     <QueryProvider>
       <Routes>
         <Route element={<RootLayuots />}>
@@ -19,6 +21,7 @@ function App() {
         </Route>
       </Routes>
     </QueryProvider>
+        </ThemeProvider>
   );
 }
 
