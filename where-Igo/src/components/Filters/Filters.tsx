@@ -21,7 +21,7 @@ function Filters(): ReactNode {
 
   return (
     <div className={styles.filter}>
-      <div className={clsx(styles.title, isopen && styles.ss)}>برچسب ها</div>
+      <div className={styles.title}>برچسب ها</div>
 
       <div className={styles["menu-filter"]} onClick={toggleMenu}>
         فیلتر ها

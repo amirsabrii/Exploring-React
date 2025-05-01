@@ -131,7 +131,32 @@
     }
 
     .filter-tags {
+
       display: none;
+      margin-inline: auto;
+
+      width: 95vw;
+      max-width: 100%;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(#f0f0f0, #49a3fd, #f0f0f0);
+        border-radius: 999rem;
+      }
+
+      >.options{
+          display: flex;
+        inline-size:max-content;
+
+        overflow: auto;
+        label{
+        }
+      }
+
     }
 
     .active {
