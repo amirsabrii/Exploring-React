@@ -117,5 +117,17 @@
         .acttraction-list-item{
         grid-template-columns: 100%;
             grid-template-rows: repeat(2, 1fr) ;
+            gap: 0;
+
+            .visuals{
+                img{
+
+                border-radius: 1rem 1rem 0 0;
+                }
+            }
+
+            .writings{
+                border-radius: 0 0 1rem 1rem;
+            }
         }
     }
