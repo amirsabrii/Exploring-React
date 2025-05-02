@@ -1,6 +1,6 @@
 import { ReactNode, useContext } from "react";
 
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import { ThemeContext } from "../../context/ThemeContext.tsx";
 
@@ -15,36 +15,39 @@ import SolarMoonBold from "../../icons/SolarMoonBold.tsx";
 
 import styles from "./Toolbar.module.css";
 
-
 function Toolbar(): ReactNode {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-    const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.toolbar}>
       <TextInput
         className={styles.input}
-        placeholder={t('toolbar.search.placeholder')}
+        placeholder={t("toolbar.search.placeholder")}
         suffixIcon={<MingcuteSearch2Line />}
       />
 
-      <Select
-        options={[
-          { value: "all", label: t('capsule.form.Category.all') },
-          { value: "work", label: t('capsule.form.Category.work')},
-          { value: "friendly", label: t('capsule.form.Category.friendly')},
-          { value: "family", label:t('capsule.form.Category.family') },
-        ]}
-      ></Select>
-      <LanguageButton/>
-      <Button
-        size="medium"
-        variant="solid"
-        shape="square"
-        onClick={() => toggleTheme()}
-        suffixIcon={theme === "dark" ? <MingcuteSunFill /> :<SolarMoonBold /> }
-      ></Button>
+      <div className={styles.actions}>
+        <Select
+          options={[
+            { value: "all", label: t("capsule.form.Category.all") },
+            { value: "work", label: t("capsule.form.Category.work") },
+            { value: "friendly", label: t("capsule.form.Category.friendly") },
+            { value: "family", label: t("capsule.form.Category.family") },
+          ]}
+        ></Select>
+        <LanguageButton />
+        <Button
+          size="medium"
+          variant="solid"
+          shape="square"
+          onClick={() => toggleTheme()}
+          suffixIcon={
+            theme === "dark" ? <MingcuteSunFill /> : <SolarMoonBold />
+          }
+        ></Button>
+      </div>
     </div>
   );
 }
