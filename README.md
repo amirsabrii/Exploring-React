@@ -1,4 +1,4 @@
-# Exploring React
-click to [visit demo](https://time-capsule-react.vercel.app)
+# کاووش در ریکنت
+برای مشاده کپسول زمان [کلیلک کنید](https://time-capsule-react.vercel.app)
 
-click to [visit demo](https://kojaberam.vercel.app/)
+برای مشاهدده کجا برم [کلیک کنید](https://kojaberam.vercel.app/)
