@@ -1,54 +1,34 @@
-# React + TypeScript + Vite
+## کجا برم
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔗 لینک نسخه آنلاین
 
-Currently, two official plugins are available:
+[برای بازدید از کجا برم کلیک کنید ](https://kojaberam.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ توضیح پروژه
 
-## Expanding the ESLint configuration
+کجا برم پر.ژه ای هستش برای کمک به کاربرها برای پیدا کردن جتهتی دیدنی که شهر تهران داره ، تو این پروژه اسم و مشخصات تعدادی از مکان های دیدنی تهران آورده شده که خر کدام صفحه مجزا به خودشون رو دارن و اطلاعات کلی مکان گردشگری اونجا قرار داره ، همچنین براساس برچسب های موجود امکان فیلتر کردن جاذبه گردشگری وجود داره ، کجا برم از دو تم دارک و لایت  پشتیبانی میکنه 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🎯 هدف پروژه
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+هدف پروزه کجا برم پیدا کردن جاذبه های گردشگری شهر تهران به طور سریع و کاربردی هست و با اطلاعات کامل که از هر صفحه وجود داره با مقایسه اون ها بهترین انتخاب رو داشته باشن
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ تکنولوژی‌ها
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- React
+- TypeScript
+- Api
+- React query
+- Css module
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## باگ های پروژه
+
+- باگ در قسمت منو همبرگری که وقتی باز میشه بقیه المنت ها جابجا میشن
+- باگ در سایز صفحه نمایش های کوچک تر در بخش اطلاعات تخصصی از جاذبه  ، زمانی که تعداد عکس های چرخ فلک زیاد باشه
+
+## 🚀 قابلیت های پیش رو
+
+- احراز هویت
+- افزودن شهرهای بیشتر
+- امکان اضافه کردن جاذبه جدید
+- جستجو پیشرفته براساس نام جاذبه یا شهر
+
